@@ -11,19 +11,28 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Storage;
 using System.IO;
 using System.Xml.Serialization;
+using BombermanAdventure.ScreenManagement;
+using BombermanAdventure.ScreenManagement.Screens;
+using BombermanAdventure.GameObjects;
+using BombermanAdventure.GameStorage;
 
 namespace BombermanAdventure
 {
+    
+    
+    
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class BombermanAdventureGame : Microsoft.Xna.Framework.Game
     {
+        public const int ScreenWidth = 1216;
+        public const int ScreenHeight = 624;
+        
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         ScreenManager screenManager; 
-        Song sfx;
-        StorageDevice storageDevice;
+        Song intro;
 
         // By preloading any assets used by UI rendering, we avoid framerate glitches
         // when they suddenly need to be loaded in the middle of a menu transition.
@@ -35,10 +44,10 @@ namespace BombermanAdventure
         public BombermanAdventureGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 853;
-            graphics.PreferredBackBufferHeight = 480;
+            graphics.PreferredBackBufferWidth = ScreenWidth;
+            graphics.PreferredBackBufferHeight = ScreenHeight;
 
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = "Content"; //folder: BombermanAdventureContent - Content in release
 
             // Create the screen manager component.
             screenManager = new ScreenManager(this);
@@ -47,22 +56,39 @@ namespace BombermanAdventure
 
             // Activate the first screens.
             screenManager.AddScreen(new BackgroundScreen(), null);
-            screenManager.AddScreen(new MainMenuScreen(), null);
-                    
-    
 
-            sfx = Content.Load<Song>("intro");
-            MediaPlayer.Play(sfx);
-
-           
-            Player p = new Player() { name = "kokot" };
-
-            System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(p.GetType());
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter("pl55.xml"))
+            PlayerList playerList;
+            try
             {
-                xmlSerializer.Serialize(file, p);
-                file.Close();
+                XmlStorage.ReadObject<PlayerList>(out playerList, "profiles.xml");
             }
+            catch (FileNotFoundException)
+            {
+                //create empty file
+                playerList = new PlayerList();
+            }
+
+            if (playerList.profiles.Count > 0)
+            {
+                //open profile screen
+            }
+            else
+            {
+                screenManager.AddScreen(new MainMenuScreen(), null);
+            }
+
+            intro = Content.Load<Song>("intro");
+            MediaPlayer.Play(intro);
+
+            //playerList.profiles.Add(new Profile() { playerName = "h3m3r22277", playerProfileFile = XmlStorage.GenerateHashedPlayerProfileFileName("h3m3r222") });
+
+                       
+            
+            //pl = new PlayerList() { name = "kozel" };
+            //XmlStorage.WriteObject<PlayerList>(ref pl, "profiles.xml"); //PlayerList should be a part of assembly
+
+            //XmlStorage.ReadObject<PlayerList>(out pl, "pl55.xml");
+
         }
 
         /// <summary>

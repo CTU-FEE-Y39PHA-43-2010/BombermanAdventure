@@ -6,8 +6,13 @@ using System.Text;
 namespace BombermanAdventure.GameObjects
 {
     [Serializable]
-    class PlayerList
+    public class PlayerList
     {
-        public Dictionary<string, string> players;
+        public List<Profile> profiles;
+
+        public PlayerList()
+        {
+            profiles = new List<Profile>(1);
+        }
     }
 }

@@ -6,4 +6,8 @@ Content\menufont.xnb
 Content\test.xnb
 Content\intro.xnb
 Content\players\Players.xnb
+Content\bomb.xnb
+Content\BAFont.xnb
+Content\sound\menuDown.xnb
+Content\sound\menuUp.xnb
 Content\intro.wma
