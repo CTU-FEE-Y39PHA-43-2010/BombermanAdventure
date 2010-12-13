@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>background.png</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2010-11-02T11:43:35.6563338+01:00</Time>
+    </Item>
+    <Item>
+      <Source>blank.png</Source>
+      <Name>blank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2010-11-02T11:43:35.687609+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gamefont.spritefont</Source>
+      <Name>gamefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\gamefont.xnb</Output>
+      <Time>2010-11-02T11:43:36.0159986+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menufont.spritefont</Source>
+      <Name>menufont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2010-11-02T11:43:36.1880122+01:00</Time>
+    </Item>
+    <Item>
+      <Source>test.spritefont</Source>
+      <Name>test</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\test.xnb</Output>
+      <Time>2010-11-02T19:43:46.77335+01:00</Time>
+    </Item>
+    <Item>
+      <Source>BAFont.spritefont</Source>
+      <Name>BAFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\BAFont.xnb</Output>
+      <Time>2010-12-07T21:49:54.394+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sound\menuDown.wav</Source>
+      <Name>sound\menuDown</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\menuDown.xnb</Output>
+      <Time>2010-11-03T15:27:05.898+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sound\menuUp.wav</Source>
+      <Name>sound\menuUp</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\menuUp.xnb</Output>
+      <Time>2010-11-03T15:27:05.901+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\background.jpg</Source>
+      <Name>images\background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\background.xnb</Output>
+      <Time>2010-12-07T19:12:51.638+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\bomb.png</Source>
+      <Name>images\bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\bomb.xnb</Output>
+      <Time>2010-11-03T12:21:45.027+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\gradient.png</Source>
+      <Name>images\gradient</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\gradient.xnb</Output>
+      <Time>2010-11-02T11:43:36.156737+01:00</Time>
+    </Item>
+    <Item>
+      <Source>images\bomba.png</Source>
+      <Name>images\bomba</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\bomba.xnb</Output>
+      <Time>2010-12-08T03:21:13.28+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sound\intro.mp3</Source>
+      <Name>sound\intro</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\intro.xnb</Output>
+      <Extra>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\intro.wma</Extra>
+      <Time>2010-10-24T11:49:46+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2010-10-06T18:53:19.477384+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

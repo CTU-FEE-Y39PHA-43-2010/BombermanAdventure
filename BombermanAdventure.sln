@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BombermanAdventure", "BombermanAdventure\BombermanAdventure\BombermanAdventure.csproj", "{E3B5AA20-DBDF-422F-86F9-7B70D9CECBB3}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "BombermanAdventureContent", "BombermanAdventure\BombermanAdventureContent\BombermanAdventureContent.contentproj", "{D8DF688D-1CBA-4F99-A282-931492CF6A5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BombermanAdventureContent", "BombermanAdventure\BombermanAdventureContent\BombermanAdventureContent.contentproj", "{D8DF688D-1CBA-4F99-A282-931492CF6A5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
