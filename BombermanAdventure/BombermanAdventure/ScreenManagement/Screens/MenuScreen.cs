@@ -2,34 +2,30 @@
 #region Using Statements
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input.Touch;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
+
 #endregion
 
 namespace BombermanAdventure.ScreenManagement.Screens
 {
-    
+
     abstract class MenuScreen : GameScreen
     {
         #region Fields
 
-        List<MenuEntry> menuEntries = new List<MenuEntry>();
-        int selectedEntry = 0;
-        string menuTitle;
-        bool isFadeOut;
-        Texture2D fadeTecture;
-        Texture2D icon;
+        readonly List<MenuEntry> _menuEntries = new List<MenuEntry>();
+        private int _selectedEntry;
+        readonly string _menuTitle;
+        Texture2D _fadeTecture;
 
-        protected int lineWeight = 2;
-        protected int leftM = 100;
-        protected int rightM = 400;
-        protected int topM = 100;
-        protected int bottomM = 100;
-        protected Texture2D blank;
+        protected int LineWeight = 2;
+        protected int LeftM = 100;
+        protected int RightM = 400;
+        protected int TopM = 100;
+        protected int BottomM = 100;
+        protected Texture2D Blank;
 
         #endregion
 
@@ -38,22 +34,12 @@ namespace BombermanAdventure.ScreenManagement.Screens
 
         protected IList<MenuEntry> MenuEntries
         {
-            get { return menuEntries; }
+            get { return _menuEntries; }
         }
 
-        public Texture2D Icon
-        {
-            get { return icon; }
-        }
+        public Texture2D Icon { get; private set; }
 
-        public bool FadeOut 
-        {
-            get { return isFadeOut; }
-            set 
-            { 
-                isFadeOut = value;
-            }
-        }
+        public bool FadeOut { get; set; }
 
         #endregion
 
@@ -63,14 +49,13 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// <summary>
         /// Constructor.
         /// </summary>
-        public MenuScreen(string menuTitle, bool isFadeOut = false)
+        protected MenuScreen(string menuTitle, bool isFadeOut = false)
         {
-            
-            this.menuTitle = menuTitle;
+            _menuTitle = menuTitle;
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
             FadeOut = isFadeOut;
-
+            _selectedEntry = 0;
         }
 
 
@@ -84,24 +69,30 @@ namespace BombermanAdventure.ScreenManagement.Screens
             // Move to the previous menu entry?
             if (input.IsMenuUp(ControllingPlayer))
             {
-                //play sound
-                ScreenManager.MenuUp.Play(0.5f, 0f, 0f);
-                selectedEntry--;
+                if (_menuEntries.Count > 1)
+                {
+                    //play sound
+                    ScreenManager.MenuUp.Play(0.5f, 0f, 0f);
+                    _selectedEntry--;
 
-                if (selectedEntry < 0)
-                    selectedEntry = menuEntries.Count - 1;
+                    if (_selectedEntry < 0)
+                        _selectedEntry = _menuEntries.Count - 1;
+                }
             }
 
             // Move to the next menu entry?
             if (input.IsMenuDown(ControllingPlayer))
             {
-                //play sound
-                ScreenManager.MenuDown.Play(0.5f, 0f, 0f);
-                selectedEntry++;
-                
+                if (_menuEntries.Count > 1)
+                {
+                    //play sound
+                    ScreenManager.MenuDown.Play(0.5f, 0f, 0f);
+                    _selectedEntry++;
 
-                if (selectedEntry >= menuEntries.Count)
-                    selectedEntry = 0;
+
+                    if (_selectedEntry >= _menuEntries.Count)
+                        _selectedEntry = 0;
+                }
             }
 
             // Accept or cancel the menu? We pass in our ControllingPlayer, which may
@@ -113,7 +104,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
 
             if (input.IsMenuSelect(ControllingPlayer, out playerIndex))
             {
-                OnSelectEntry(selectedEntry, playerIndex);
+                OnSelectEntry(_selectedEntry, playerIndex);
             }
             /*else if (input.IsMenuCancel(ControllingPlayer, out playerIndex))
             {
@@ -127,7 +118,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         protected virtual void OnSelectEntry(int entryIndex, PlayerIndex playerIndex)
         {
-            menuEntries[entryIndex].OnSelectEntry(playerIndex);
+            _menuEntries[entryIndex].OnSelectEntry(playerIndex);
         }
 
 
@@ -162,28 +153,18 @@ namespace BombermanAdventure.ScreenManagement.Screens
             // Make the menu slide into place during transitions, using a
             // power curve to make things look more interesting (this makes
             // the movement slow down as it nears the end).
-            float transitionOffset = (float)Math.Pow(TransitionPosition, 2);
+            var transitionOffset = (float)Math.Pow(TransitionPosition, 2);
 
             // start at Y = 175; each X value is generated per entry
-            Vector2 position = new Vector2(0f, 175f);
+            var position = new Vector2(0f, 175f);
 
             // update each menu entry's location in turn
-            for (int i = 0; i < menuEntries.Count; i++)
+            foreach (var menuEntry in _menuEntries.Where(menuEntry => !menuEntry.Fixed))
             {
-                MenuEntry menuEntry = menuEntries[i];
-                if (menuEntry.Fixed)
-                {
-                    continue;
-                }
-
                 // each entry is to be centered horizontally
-               // position.X = ScreenManager.GraphicsDevice.Viewport.Width / 2 - menuEntry.GetWidth(this) / 2;
+                // position.X = ScreenManager.GraphicsDevice.Viewport.Width / 2 - menuEntry.GetWidth(this) / 2;
                 position.X = 120;
-
-                if (ScreenState == ScreenState.TransitionOn)
-                    position.X -= transitionOffset * 256;
-                else
-                    position.X += transitionOffset * 512;
+                position.X += (ScreenState == ScreenState.TransitionOn ? -(transitionOffset * 256) : transitionOffset * 512);
 
                 // set the entry's position
                 menuEntry.Position = position;
@@ -203,23 +184,22 @@ namespace BombermanAdventure.ScreenManagement.Screens
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
 
             // Update each nested MenuEntry object.
-            for (int i = 0; i < menuEntries.Count; i++)
+            for (var i = 0; i < _menuEntries.Count; i++)
             {
-                bool isSelected = IsActive && (i == selectedEntry);
-
-                menuEntries[i].Update(this, isSelected, gameTime);
+                var isSelected = IsActive && (i == _selectedEntry);
+                _menuEntries[i].Update(this, isSelected, gameTime);
             }
         }
 
         public override void LoadContent()
         {
-            ContentManager content = ScreenManager.Game.Content;
-            fadeTecture = content.Load<Texture2D>(@"images\gradient");
-            icon = content.Load<Texture2D>(@"images\bomba");
-            blank = new Texture2D(ScreenManager.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
-            blank.SetData(new[] { Color.White });
+            var content = ScreenManager.Game.Content;
+            _fadeTecture = content.Load<Texture2D>(@"images\gradient");
+            Icon = content.Load<Texture2D>(@"images\bomba");
+            Blank = new Texture2D(ScreenManager.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
+            Blank.SetData(new[] { Color.White });
         }
-                
+
         /// <summary>
         /// Draws the menu.
         /// </summary>
@@ -228,61 +208,56 @@ namespace BombermanAdventure.ScreenManagement.Screens
             // make sure our entries are in the right place before we draw them
             UpdateMenuEntryLocations();
 
-            GraphicsDevice graphics = ScreenManager.GraphicsDevice;
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-            SpriteFont font = ScreenManager.Font;
-            Color color = Color.Black * Math.Min(TransitionAlpha, .8f);
+            var spriteBatch = ScreenManager.SpriteBatch;
+            var font = ScreenManager.Font;
+            var color = Color.Black * Math.Min(TransitionAlpha, .8f);
 
             spriteBatch.Begin();
 
-            Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
+            var viewport = ScreenManager.GraphicsDevice.Viewport;
             Color titleColor;
 
             if (FadeOut)
             {
-                spriteBatch.Draw(fadeTecture, new Rectangle(0, 0, viewport.Width, viewport.Height), color);
+                spriteBatch.Draw(_fadeTecture, new Rectangle(0, 0, viewport.Width, viewport.Height), color);
                 titleColor = new Color(255, 255, 255) * TransitionAlpha;
-                // fade.End();
             }
-            else {
-                spriteBatch.Draw(fadeTecture, new Rectangle(topM, leftM, rightM-leftM, viewport.Height-topM-bottomM), color);
+            else
+            {
+                spriteBatch.Draw(_fadeTecture, new Rectangle(TopM, LeftM, RightM - LeftM, viewport.Height - TopM - BottomM), color);
                 titleColor = new Color(0, 0, 0) * TransitionAlpha;
             }
 
             //top
-            DrawLine(spriteBatch, blank, lineWeight, Color.Gray, new Vector2(leftM, topM), new Vector2(rightM, topM));
+            DrawLine(spriteBatch, Blank, LineWeight, Color.Gray, new Vector2(LeftM, TopM), new Vector2(RightM, TopM));
             //bottom
-            DrawLine(spriteBatch, blank, lineWeight, Color.Gray, new Vector2(leftM - lineWeight, viewport.Height - 100), new Vector2(400, viewport.Height - 100));
+            DrawLine(spriteBatch, Blank, LineWeight, Color.Gray, new Vector2(LeftM - LineWeight, viewport.Height - 100), new Vector2(400, viewport.Height - 100));
             //left
-            DrawLine(spriteBatch, blank, lineWeight, Color.Gray, new Vector2(leftM, topM), new Vector2(100, viewport.Height - bottomM));
+            DrawLine(spriteBatch, Blank, LineWeight, Color.Gray, new Vector2(LeftM, TopM), new Vector2(100, viewport.Height - BottomM));
             //right
-            DrawLine(spriteBatch, blank, lineWeight, Color.Gray, new Vector2(rightM, topM), new Vector2(400, viewport.Height - bottomM));
+            DrawLine(spriteBatch, Blank, LineWeight, Color.Gray, new Vector2(RightM, TopM), new Vector2(400, viewport.Height - BottomM));
 
 
             // Draw each menu entry in turn.
-            for (int i = 0; i < menuEntries.Count; i++)
+            for (var i = 0; i < _menuEntries.Count; i++)
             {
-                MenuEntry menuEntry = menuEntries[i];
-
-                bool isSelected = IsActive && (i == selectedEntry);
-
+                var menuEntry = _menuEntries[i];
+                var isSelected = IsActive && (i == _selectedEntry);
                 menuEntry.Draw(this, isSelected, gameTime, Icon);
             }
 
             // Make the menu slide into place during transitions, using a
             // power curve to make things look more interesting (this makes
             // the movement slow down as it nears the end).
-            float transitionOffset = (float)Math.Pow(TransitionPosition, 2);
+            var transitionOffset = (float)Math.Pow(TransitionPosition, 2);
 
-            // Draw the menu title centered on the screen
-            Vector2 titlePosition = new Vector2(150, 60);
-            Vector2 titleOrigin = font.MeasureString(menuTitle) / 2;
-            
-            float titleScale = 1.25f;
+            var titlePosition = new Vector2(150, 60);
+            var titleOrigin = font.MeasureString(_menuTitle) / 2;
 
+            const float titleScale = 1.25f;
             titlePosition.Y -= transitionOffset * 100;
 
-            spriteBatch.DrawString(font, "<< " + menuTitle + " >>", titlePosition, titleColor, 0,
+            spriteBatch.DrawString(font, "<< " + _menuTitle + " >>", titlePosition, titleColor, 0,
                                    titleOrigin, titleScale, SpriteEffects.None, 0);
 
             spriteBatch.End();

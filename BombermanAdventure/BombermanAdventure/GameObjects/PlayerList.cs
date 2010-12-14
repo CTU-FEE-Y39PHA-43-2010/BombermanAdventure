@@ -8,11 +8,11 @@ namespace BombermanAdventure.GameObjects
     [Serializable]
     public class PlayerList
     {
-        public List<Player> profiles;
+        public List<Profile> Profiles;
 
         public PlayerList()
         {
-            profiles = new List<Player>(1);
+            Profiles = new List<Profile>(1);
         }
     }
 }

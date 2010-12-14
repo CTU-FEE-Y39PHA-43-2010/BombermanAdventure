@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,13 +9,11 @@ namespace BombermanAdventure.ScreenManagement.Screens
     {
         #region Fields
 
-        ContentManager content;
-        Texture2D backgroundTexture;
-
-        Vector2 mPosition;
-        Texture2D mSpriteTexture;
-
-        int padding = 30;
+        ContentManager _content;
+        Texture2D _backgroundTexture;
+        Vector2 _mPosition;
+        Texture2D _mSpriteTexture;
+        const int Padding = 30;
 
         #endregion
 
@@ -26,14 +21,14 @@ namespace BombermanAdventure.ScreenManagement.Screens
 
 
         enum RoundingSpriteBatch
-        { 
+        {
             GoingLeft,
             GoingRight,
             GoingUp,
             GoingDown
         }
 
-        RoundingSpriteBatch state;
+        RoundingSpriteBatch _state;
 
         /// <summary>
         /// Constructor.
@@ -42,9 +37,9 @@ namespace BombermanAdventure.ScreenManagement.Screens
         {
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
-            state = RoundingSpriteBatch.GoingRight;
+            _state = RoundingSpriteBatch.GoingRight;
         }
-        
+
 
         /// <summary>
         /// Loads graphics content for this screen. The background texture is quite
@@ -55,13 +50,13 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public override void LoadContent()
         {
-            if (content == null)
+            if (_content == null)
             {
-                content = new ContentManager(ScreenManager.Game.Services, "Content");
-            } 
-            backgroundTexture = content.Load<Texture2D>(@"images\background");
-            mSpriteTexture = content.Load<Texture2D>(@"images\bomb");
-            mPosition = new Vector2(padding, padding);
+                _content = new ContentManager(ScreenManager.Game.Services, "Content");
+            }
+            _backgroundTexture = _content.Load<Texture2D>(@"images\background");
+            _mSpriteTexture = _content.Load<Texture2D>(@"images\bomb");
+            _mPosition = new Vector2(Padding, Padding);
         }
 
 
@@ -70,7 +65,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public override void UnloadContent()
         {
-            content.Unload();
+            _content.Unload();
         }
 
 
@@ -95,30 +90,30 @@ namespace BombermanAdventure.ScreenManagement.Screens
 
         void UpdateRoundingSpritePosition()
         {
-            switch (state)
-            { 
+            switch (_state)
+            {
                 case RoundingSpriteBatch.GoingRight:
-                    if (++mPosition.X == BombermanAdventureGame.ScreenWidth - mSpriteTexture.Width - padding)
+                    if (++_mPosition.X == BombermanAdventureGame.ScreenWidth - _mSpriteTexture.Width - Padding)
                     {
-                        state = RoundingSpriteBatch.GoingDown;
+                        _state = RoundingSpriteBatch.GoingDown;
                     }
                     return;
                 case RoundingSpriteBatch.GoingLeft:
-                    if (--mPosition.X == padding)
+                    if (--_mPosition.X == Padding)
                     {
-                        state = RoundingSpriteBatch.GoingUp;
+                        _state = RoundingSpriteBatch.GoingUp;
                     }
                     return;
                 case RoundingSpriteBatch.GoingDown:
-                    if (++mPosition.Y == BombermanAdventureGame.ScreenHeight - mSpriteTexture.Height - padding)
+                    if (++_mPosition.Y == BombermanAdventureGame.ScreenHeight - _mSpriteTexture.Height - Padding)
                     {
-                        state = RoundingSpriteBatch.GoingLeft;
+                        _state = RoundingSpriteBatch.GoingLeft;
                     }
                     return;
                 case RoundingSpriteBatch.GoingUp:
-                    if (--mPosition.Y == padding)
+                    if (--_mPosition.Y == Padding)
                     {
-                        state = RoundingSpriteBatch.GoingRight;
+                        _state = RoundingSpriteBatch.GoingRight;
                     }
                     return;
             }
@@ -129,15 +124,15 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-            Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
-            Rectangle fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
+            var spriteBatch = ScreenManager.SpriteBatch;
+            var viewport = ScreenManager.GraphicsDevice.Viewport;
+            var fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
 
             spriteBatch.Begin();
 
-            spriteBatch.Draw(backgroundTexture, fullscreen,
+            spriteBatch.Draw(_backgroundTexture, fullscreen,
                              new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));
-            spriteBatch.Draw(mSpriteTexture, mPosition, Color.White);
+            spriteBatch.Draw(_mSpriteTexture, _mPosition, Color.White);
 
             spriteBatch.End();
         }

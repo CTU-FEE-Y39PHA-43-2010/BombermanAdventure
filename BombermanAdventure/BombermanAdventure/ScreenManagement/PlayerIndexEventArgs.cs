@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 
 namespace BombermanAdventure.ScreenManagement
@@ -12,24 +9,17 @@ namespace BombermanAdventure.ScreenManagement
     /// </summary>
     class PlayerIndexEventArgs : EventArgs
     {
-
-        readonly PlayerIndex _playerIndex;
-
         /// <summary>
         /// Constructor.
         /// </summary>
         public PlayerIndexEventArgs(PlayerIndex playerIndex)
         {
-            this._playerIndex = playerIndex;
+            PlayerIndex = playerIndex;
         }
-
 
         /// <summary>
         /// Gets the index of the player who triggered this event.
         /// </summary>
-        public PlayerIndex PlayerIndex
-        {
-            get { return _playerIndex; }
-        }
+        public PlayerIndex PlayerIndex { get; private set; }
     }
 }

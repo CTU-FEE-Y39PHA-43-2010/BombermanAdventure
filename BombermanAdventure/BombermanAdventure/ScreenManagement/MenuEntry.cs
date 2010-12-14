@@ -28,8 +28,6 @@ namespace BombermanAdventure.ScreenManagement
         /// </summary>
         Vector2 _position;
 
-        bool _isFixed;
-
         #endregion
 
         #region Properties
@@ -55,10 +53,7 @@ namespace BombermanAdventure.ScreenManagement
         }
 
 
-        public bool Fixed {
-            get { return _isFixed; }
-            protected set { _isFixed = value; }
-        }
+        public bool Fixed { get; protected set; }
 
         #endregion
 
@@ -93,8 +88,8 @@ namespace BombermanAdventure.ScreenManagement
         /// </summary>
         public MenuEntry(string text)
         {
-           _text = text;
-           Fixed = false;
+            _text = text;
+            Fixed = false;
         }
 
         public MenuEntry(string text, Vector2 position)
@@ -116,15 +111,7 @@ namespace BombermanAdventure.ScreenManagement
         public virtual void Update(MenuScreen screen, bool isSelected, GameTime gameTime)
         {
             var fadeSpeed = (float)gameTime.ElapsedGameTime.TotalSeconds * 4;
-
-            if (isSelected)
-            {
-                _selectionFade = Math.Min(_selectionFade + fadeSpeed, 1);
-            }
-            else
-            {
-                _selectionFade = Math.Max(_selectionFade - fadeSpeed, 0);
-            }
+            _selectionFade = isSelected ? Math.Min(_selectionFade + fadeSpeed, 1) : Math.Max(_selectionFade - fadeSpeed, 0);
         }
 
 
@@ -135,7 +122,7 @@ namespace BombermanAdventure.ScreenManagement
         {
             // selected entry draw red
             var color = isSelected ? new Color(204, 42, 42) : Color.White;
-           
+
             // Modify the alpha to fade text out during transitions.
             color *= screen.TransitionAlpha;
 
@@ -146,7 +133,7 @@ namespace BombermanAdventure.ScreenManagement
 
             if (isSelected)
             {
-                spriteBatch.Draw(icon, new Rectangle(320, (int)_position.Y-15, 30, 30), Color.White);
+                spriteBatch.Draw(icon, new Rectangle(320, (int)_position.Y - 15, 30, 30), Color.White);
             }
             var origin = new Vector2(0, font.LineSpacing / 2.0f);
 

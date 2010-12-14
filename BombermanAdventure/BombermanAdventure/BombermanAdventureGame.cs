@@ -1,19 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Storage;
-using System.IO;
 using BombermanAdventure.ScreenManagement;
 using BombermanAdventure.ScreenManagement.Screens;
 using BombermanAdventure.GameObjects;
-using BombermanAdventure.GameStorage;
 
 namespace BombermanAdventure
 {
@@ -30,13 +20,13 @@ namespace BombermanAdventure
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         ScreenManager screenManager; 
-        private static Player _activePlayer;
+        private static Profile _activePlayer;
 
 
         /// <summary>
         /// Actual gaming player
         /// </summary>
-        public static Player ActivePlayer 
+        public static Profile ActivePlayer 
         {
             get { return _activePlayer; }
             set { _activePlayer = value; }
@@ -45,7 +35,7 @@ namespace BombermanAdventure
         /// <summary>
         /// Preload game components
         /// </summary>
-        static readonly string[] preloadAssets =
+        static readonly string[] PreloadAssets =
         {
             @"images\gradient",
             @"images\bomba",
@@ -94,7 +84,7 @@ namespace BombermanAdventure
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            foreach (string asset in preloadAssets)
+            foreach (string asset in PreloadAssets)
             {
                 Content.Load<object>(asset);
             }
@@ -110,9 +100,6 @@ namespace BombermanAdventure
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
-            // TODO: Add your update logic here
-
             base.Update(gameTime);
         }
 

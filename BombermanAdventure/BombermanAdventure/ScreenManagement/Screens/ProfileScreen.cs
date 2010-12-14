@@ -18,7 +18,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         private string _input;
         private bool _saveable;
         private bool _shift;
-        readonly PlayerList _pl;
+        private readonly PlayerList _pl;
 
         /// <summary>
         /// Profile scree
@@ -40,16 +40,12 @@ namespace BombermanAdventure.ScreenManagement.Screens
         void OptionsMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             var m = (MenuEntry)sender;
-            foreach(var p in _pl.profiles) 
+            foreach (var p in _pl.Profiles.Where(p => p.Name == m.Text))
             {
-                if (p.Name == m.Text) 
-                {
-                    BombermanAdventureGame.ActivePlayer = p;
-                    ScreenManager.AddScreen(new MainMenuScreen(m.Text), e.PlayerIndex);
-                    ExitScreen();
-                }
+                BombermanAdventureGame.ActivePlayer = p;
+                ScreenManager.AddScreen(new MainMenuScreen(m.Text), e.PlayerIndex);
+                ExitScreen();
             }
-            
         }
 
         /// <summary>
@@ -62,7 +58,13 @@ namespace BombermanAdventure.ScreenManagement.Screens
         
         void FillMenuItems() {
             
-            foreach (var player in _pl.profiles)
+            /*foreach (var profileEntry in _pl.profiles.Select(player => new MenuEntry(player.Name)))
+            {
+                MenuEntries.Add(profileEntry);
+                profileEntry.Selected += OptionsMenuEntrySelected;
+            }*/
+
+            foreach (var player in _pl.Profiles)
             {
                 var profileEntry = new MenuEntry(player.Name);
                 MenuEntries.Add(profileEntry);
@@ -70,7 +72,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
             }
 
             // Create static menu entry for new profile creating
-            var newProfileEntry = new MenuEntry("create new profile", new Vector2(leftM + 20, BombermanAdventureGame.ScreenHeight - bottomM - 30));
+            var newProfileEntry = new MenuEntry("create new profile", new Vector2(LeftM + 20, BombermanAdventureGame.ScreenHeight - BottomM - 30));
             newProfileEntry.Selected += NewProfileEntrySelected;
 
             MenuEntries.Add(newProfileEntry);
@@ -90,13 +92,13 @@ namespace BombermanAdventure.ScreenManagement.Screens
                 {
                     if(_saveable)
                     {
-                        if (_pl.profiles.Any(player => player.Name == _newProfileName))
+                        if (_pl.Profiles.Any(player => player.Name == _newProfileName))
                         {
                             return;
                         }
-                        if (_pl.profiles != null)
+                        if (_pl.Profiles != null)
                         {
-                            _pl.profiles.Add(new Player(_newProfileName));
+                            _pl.Profiles.Add(new Profile(_newProfileName));
                             MenuEntries.Clear();
                             FillMenuItems();
                             PlayerListStorage.Save();
@@ -200,24 +202,24 @@ namespace BombermanAdventure.ScreenManagement.Screens
         {
             base.Draw(gameTime);
 
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-            Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
+            var spriteBatch = ScreenManager.SpriteBatch;
+            var viewport = ScreenManager.GraphicsDevice.Viewport;
 
             spriteBatch.Begin();
             
             if (_createProfile) {
 
                 //vypsat kolonku
-                spriteBatch.Draw(blank, new Rectangle(leftM + 20, viewport.Height - bottomM - 80, 200, 30), Color.White);
+                spriteBatch.Draw(Blank, new Rectangle(LeftM + 20, viewport.Height - BottomM - 80, 200, 30), Color.White);
 
                 //vypsat text
-                SpriteFont font = ScreenManager.Font;
+                var font = ScreenManager.Font;
                 var origin = new Vector2(0, font.LineSpacing / 2.0f);
 
-                spriteBatch.DrawString(font, "profile name:", new Vector2(leftM + 25, viewport.Height - bottomM - 95), Color.White, 0,
+                spriteBatch.DrawString(font, "profile name:", new Vector2(LeftM + 25, viewport.Height - BottomM - 95), Color.White, 0,
                                        origin, 1f, SpriteEffects.None, 0);
 
-                spriteBatch.DrawString(font, _newProfileName, new Vector2(leftM + 40, viewport.Height - bottomM - 65), _profileTextColor, 0,
+                spriteBatch.DrawString(font, _newProfileName, new Vector2(LeftM + 40, viewport.Height - BottomM - 65), _profileTextColor, 0,
                                        origin, 1f, SpriteEffects.None, 0);
             }
 

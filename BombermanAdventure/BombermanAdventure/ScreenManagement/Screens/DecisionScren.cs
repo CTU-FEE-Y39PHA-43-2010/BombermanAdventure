@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-#region Using Statements
+﻿#region Using Statements
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -19,8 +15,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
     {
         #region Fields
 
-        string message;
-        Texture2D gradientTexture;
+        readonly string _message;
+        Texture2D _gradientTexture;
 
         #endregion
 
@@ -39,11 +35,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public DecisionScreen(string message)
         {
-            
-            this.message = message;
-
+            _message = message;
             IsPopup = true;
-
             TransitionOnTime = TimeSpan.FromSeconds(0.2);
             TransitionOffTime = TimeSpan.FromSeconds(0.2);
         }
@@ -57,8 +50,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public override void LoadContent()
         {
-            ContentManager content = ScreenManager.Game.Content;
-            gradientTexture = content.Load<Texture2D>(@"images\gradient");
+            var content = ScreenManager.Game.Content;
+            _gradientTexture = content.Load<Texture2D>(@"images\gradient");
         }
 
 
@@ -115,39 +108,37 @@ namespace BombermanAdventure.ScreenManagement.Screens
             ScreenManager.FadeBackBufferToBlack(TransitionAlpha * 2 / 3);
 
             // Center the message text in the viewport.
-            Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
-            Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
-            Vector2 textSize = font.MeasureString(message);
-            Vector2 textPosition = (viewportSize - textSize) / 2;
+            var viewport = ScreenManager.GraphicsDevice.Viewport;
+            var viewportSize = new Vector2(viewport.Width, viewport.Height);
+            var textSize = font.MeasureString(_message);
+            var textPosition = (viewportSize - textSize) / 2;
 
             // The background includes a border somewhat larger than the text itself.
             const int hPad = 40;
             const int vPad = 40;
 
-            Rectangle fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
+            var fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
 
-            Rectangle backgroundRectangle = new Rectangle((int)textPosition.X - hPad,
+            var backgroundRectangle = new Rectangle((int)textPosition.X - hPad,
                                                           (int)textPosition.Y - vPad,
                                                           (int)textSize.X + hPad * 2,
                                                           (int)textSize.Y + vPad * 2);
 
             // Fade the popup alpha during transitions.
-            Color color = Color.Black * Math.Min(TransitionAlpha, .6f);
+            var color = Color.Black * Math.Min(TransitionAlpha, .6f);
 
             spriteBatch.Begin();
 
             // Draw the background rectangle.
-            spriteBatch.Draw(gradientTexture, fullscreen, color);
+            spriteBatch.Draw(_gradientTexture, fullscreen, color);
 
             // Draw the message box text.
-            spriteBatch.DrawString(font, message, textPosition, Color.White);
+            spriteBatch.DrawString(font, _message, textPosition, Color.White);
 
-            
-
-            Color borderc = new Color(204, 42, 42);
-            Texture2D blank  = new Texture2D(ScreenManager.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
+            var borderc = new Color(204, 42, 42);
+            var blank = new Texture2D(ScreenManager.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             blank.SetData(new[] { Color.White });
-           //top
+            //top
             DrawLine(spriteBatch, blank, 2f, borderc, new Vector2(backgroundRectangle.X, backgroundRectangle.Y), new Vector2(backgroundRectangle.X + backgroundRectangle.Width, backgroundRectangle.Y));
             //bottom
             DrawLine(spriteBatch, blank, 2f, borderc, new Vector2(backgroundRectangle.X - 2f, backgroundRectangle.Y + backgroundRectangle.Height), new Vector2(backgroundRectangle.X + backgroundRectangle.Width, backgroundRectangle.Y + backgroundRectangle.Height));

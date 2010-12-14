@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Graphics;
@@ -31,6 +28,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
     {
         #region Properties
 
+        TimeSpan _transitionOnTime = TimeSpan.Zero;
+        TimeSpan _transitionOffTime = TimeSpan.Zero;
 
         /// <summary>
         /// Normally when one screen is brought up over the top of another,
@@ -39,13 +38,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// popup, in which case screens underneath it do not need to bother
         /// transitioning off.
         /// </summary>
-        public bool IsPopup
-        {
-            get { return isPopup; }
-            protected set { isPopup = value; }
-        }
-
-        bool isPopup = false;
+        public bool IsPopup { get; protected set; }
 
 
         /// <summary>
@@ -54,12 +47,9 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public TimeSpan TransitionOnTime
         {
-            get { return transitionOnTime; }
-            protected set { transitionOnTime = value; }
+            get { return _transitionOnTime; }
+            protected set { _transitionOnTime = value; }
         }
-
-        TimeSpan transitionOnTime = TimeSpan.Zero;
-
 
         /// <summary>
         /// Indicates how long the screen takes to
@@ -67,12 +57,9 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public TimeSpan TransitionOffTime
         {
-            get { return transitionOffTime; }
-            protected set { transitionOffTime = value; }
+            get { return _transitionOffTime; }
+            protected set { _transitionOffTime = value; }
         }
-
-        TimeSpan transitionOffTime = TimeSpan.Zero;
-
 
         /// <summary>
         /// Gets the current position of the screen transition, ranging
@@ -81,11 +68,11 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public float TransitionPosition
         {
-            get { return transitionPosition; }
-            protected set { transitionPosition = value; }
+            get { return _transitionPosition; }
+            protected set { _transitionPosition = value; }
         }
 
-        float transitionPosition = 1;
+        float _transitionPosition = 1;
 
 
         /// <summary>
@@ -104,11 +91,11 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public ScreenState ScreenState
         {
-            get { return screenState; }
-            protected set { screenState = value; }
+            get { return _screenState; }
+            protected set { _screenState = value; }
         }
 
-        ScreenState screenState = ScreenState.TransitionOn;
+        ScreenState _screenState = ScreenState.TransitionOn;
 
 
         /// <summary>
@@ -121,11 +108,11 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public bool IsExiting
         {
-            get { return isExiting; }
-            protected internal set { isExiting = value; }
+            get { return _isExiting; }
+            protected internal set { _isExiting = value; }
         }
 
-        bool isExiting = false;
+        bool _isExiting;
 
 
         /// <summary>
@@ -135,25 +122,19 @@ namespace BombermanAdventure.ScreenManagement.Screens
         {
             get
             {
-                return !otherScreenHasFocus &&
-                       (screenState == ScreenState.TransitionOn ||
-                        screenState == ScreenState.Active);
+                return !_otherScreenHasFocus &&
+                       (_screenState == ScreenState.TransitionOn ||
+                        _screenState == ScreenState.Active);
             }
         }
 
-        bool otherScreenHasFocus;
+        bool _otherScreenHasFocus;
 
 
         /// <summary>
         /// Gets the manager that this screen belongs to.
         /// </summary>
-        public ScreenManager ScreenManager
-        {
-            get { return screenManager; }
-            internal set { screenManager = value; }
-        }
-
-        ScreenManager screenManager;
+        public ScreenManager ScreenManager { get; internal set; }
 
 
         /// <summary>
@@ -164,13 +145,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// this menu is given control over all subsequent screens, so other gamepads
         /// are inactive until the controlling player returns to the main menu.
         /// </summary>
-        public PlayerIndex? ControllingPlayer
-        {
-            get { return controllingPlayer; }
-            internal set { controllingPlayer = value; }
-        }
-
-        PlayerIndex? controllingPlayer;
+        public PlayerIndex? ControllingPlayer { get; internal set; }
 
 
         /// <summary>
@@ -182,10 +157,10 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public GestureType EnabledGestures
         {
-            get { return enabledGestures; }
+            get { return _enabledGestures; }
             protected set
             {
-                enabledGestures = value;
+                _enabledGestures = value;
 
                 // the screen manager handles this during screen changes, but
                 // if this screen is active and the gesture types are changing,
@@ -197,13 +172,18 @@ namespace BombermanAdventure.ScreenManagement.Screens
             }
         }
 
-        GestureType enabledGestures = GestureType.None;
+        GestureType _enabledGestures = GestureType.None;
 
+        protected GameScreen()
+        {
+            IsPopup = false;
+        }
 
         #endregion
 
         #region Initialization
 
+        public virtual void InitializeScreenComponents() { }
 
         /// <summary>
         /// Load graphics content for the screen.
@@ -213,8 +193,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
         protected void DrawLine(SpriteBatch batch, Texture2D blank,
               float width, Color color, Vector2 point1, Vector2 point2)
         {
-            float angle = (float)Math.Atan2(point2.Y - point1.Y, point2.X - point1.X);
-            float length = Vector2.Distance(point1, point2);
+            var angle = (float)Math.Atan2(point2.Y - point1.Y, point2.X - point1.X);
+            var length = Vector2.Distance(point1, point2);
 
             batch.Draw(blank, point1, null, color,
                        angle, Vector2.Zero, new Vector2(length, width),
@@ -240,14 +220,14 @@ namespace BombermanAdventure.ScreenManagement.Screens
         public virtual void Update(GameTime gameTime, bool otherScreenHasFocus,
                                                       bool coveredByOtherScreen)
         {
-            this.otherScreenHasFocus = otherScreenHasFocus;
+            _otherScreenHasFocus = otherScreenHasFocus;
 
-            if (isExiting)
+            if (_isExiting)
             {
                 // If the screen is going away to die, it should transition off.
-                screenState = ScreenState.TransitionOff;
+                _screenState = ScreenState.TransitionOff;
 
-                if (!UpdateTransition(gameTime, transitionOffTime, 1))
+                if (!UpdateTransition(gameTime, _transitionOffTime, 1))
                 {
                     // When the transition finishes, remove the screen.
                     ScreenManager.RemoveScreen(this);
@@ -256,30 +236,12 @@ namespace BombermanAdventure.ScreenManagement.Screens
             else if (coveredByOtherScreen)
             {
                 // If the screen is covered by another, it should transition off.
-                if (UpdateTransition(gameTime, transitionOffTime, 1))
-                {
-                    // Still busy transitioning.
-                    screenState = ScreenState.TransitionOff;
-                }
-                else
-                {
-                    // Transition finished!
-                    screenState = ScreenState.Hidden;
-                }
+                _screenState = UpdateTransition(gameTime, _transitionOffTime, 1) ? ScreenState.TransitionOff : ScreenState.Hidden;
             }
             else
             {
                 // Otherwise the screen should transition on and become active.
-                if (UpdateTransition(gameTime, transitionOnTime, -1))
-                {
-                    // Still busy transitioning.
-                    screenState = ScreenState.TransitionOn;
-                }
-                else
-                {
-                    // Transition finished!
-                    screenState = ScreenState.Active;
-                }
+                _screenState = UpdateTransition(gameTime, _transitionOnTime, -1) ? ScreenState.TransitionOn : ScreenState.Active;
             }
         }
 
@@ -299,13 +261,13 @@ namespace BombermanAdventure.ScreenManagement.Screens
                                           time.TotalMilliseconds);
 
             // Update the transition position.
-            transitionPosition += transitionDelta * direction;
+            _transitionPosition += transitionDelta * direction;
 
             // Did we reach the end of the transition?
-            if (((direction < 0) && (transitionPosition <= 0)) ||
-                ((direction > 0) && (transitionPosition >= 1)))
+            if (((direction < 0) && (_transitionPosition <= 0)) ||
+                ((direction > 0) && (_transitionPosition >= 1)))
             {
-                transitionPosition = MathHelper.Clamp(transitionPosition, 0, 1);
+                _transitionPosition = MathHelper.Clamp(_transitionPosition, 0, 1);
                 return false;
             }
 
@@ -348,7 +310,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
             else
             {
                 // Otherwise flag that it should transition off and then exit.
-                isExiting = true;
+                _isExiting = true;
             }
         }
 

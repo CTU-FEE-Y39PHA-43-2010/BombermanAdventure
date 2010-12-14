@@ -98,7 +98,7 @@ namespace BombermanAdventure.ScreenManagement
                 return (CurrentKeyboardStates[i].IsKeyDown(key) &&
                         LastKeyboardStates[i].IsKeyUp(key));
             }
-            
+
             // Accept input from any player.
             return (IsNewKeyPress(key, PlayerIndex.One, out playerIndex) ||
                     IsNewKeyPress(key, PlayerIndex.Two, out playerIndex) ||
@@ -126,7 +126,7 @@ namespace BombermanAdventure.ScreenManagement
                 return (CurrentGamePadStates[i].IsButtonDown(button) &&
                         LastGamePadStates[i].IsButtonUp(button));
             }
-            
+
             // Accept input from any player.
             return (IsNewButtonPress(button, PlayerIndex.One, out playerIndex) ||
                     IsNewButtonPress(button, PlayerIndex.Two, out playerIndex) ||

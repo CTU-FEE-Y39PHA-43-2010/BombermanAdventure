@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-using BombermanAdventure.GameStorage;
+﻿using BombermanAdventure.GameStorage;
 using BombermanAdventure.GameObjects;
 
 namespace BombermanAdventure.ScreenManagement.Screens
@@ -20,38 +15,37 @@ namespace BombermanAdventure.ScreenManagement.Screens
             : base(x)
         {
             // Create our menu entries.
-            MenuEntry playGameMenuEntry = new MenuEntry("play game");
-            MenuEntry infoMenuEntry = new MenuEntry("player info");
-            MenuEntry deleteProfileMenuEntry = new MenuEntry("delete profile");
-            MenuEntry exitMenuEntry = new MenuEntry("exit");
+            var playGameMenuEntry = new MenuEntry("play game");
+            var infoMenuEntry = new MenuEntry("player info");
+            var helpMenuEntry = new MenuEntry("command help");
+            var deleteProfileMenuEntry = new MenuEntry("delete profile");
+            var exitMenuEntry = new MenuEntry("exit");
 
             // Hook up menu event handlers.
-            // playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
+            playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
             infoMenuEntry.Selected += InfoMenuEntrySelected;
+            helpMenuEntry.Selected += HelpMenuEntrySelected;
             exitMenuEntry.Selected += OnExit;
             deleteProfileMenuEntry.Selected += OnDelete;
 
             // Add entries to the menu.
             MenuEntries.Add(playGameMenuEntry);
             MenuEntries.Add(infoMenuEntry);
+            MenuEntries.Add(helpMenuEntry);
             MenuEntries.Add(deleteProfileMenuEntry);
             MenuEntries.Add(exitMenuEntry);
-        } 
+        }
 
 
         #endregion
 
         #region Handle Input
 
-
-        /// <summary>
-        /// Event handler for when the Play Game menu entry is selected.
-        /// </summary>
         void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            //LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen());
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
+                               new PlayingScreen());
         }
-
 
         /// <summary>
         /// Event handler for when the Options menu entry is selected.
@@ -61,6 +55,14 @@ namespace BombermanAdventure.ScreenManagement.Screens
             ScreenManager.AddScreen(new ProfileDetailScreen(), e.PlayerIndex);
         }
 
+        /// <summary>
+        /// Event handler for when the Options menu entry is selected.
+        /// </summary>
+        void HelpMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            ScreenManager.AddScreen(new HelpScreen(), e.PlayerIndex);
+        }
+
 
         /// <summary>
         /// When the user cancels the main menu, ask if they want to exit the sample.
@@ -68,7 +70,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         void OnExit(object sender, PlayerIndexEventArgs e)
         {
             const string message = "Do you really want to exit Bomberman Adventure?";
-            DecisionScreen confirmExit = new DecisionScreen(message);
+            var confirmExit = new DecisionScreen(message);
             confirmExit.Accepted += ConfirmExitAccepted;
             ScreenManager.AddScreen(confirmExit, e.PlayerIndex);
         }
@@ -76,7 +78,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         void OnDelete(object sender, PlayerIndexEventArgs e)
         {
             const string message = "Do you really want to delete this profile?";
-            DecisionScreen confirmDelete = new DecisionScreen(message);
+            var confirmDelete = new DecisionScreen(message);
             confirmDelete.Accepted += ConfirmDeleteAccepted;
             ScreenManager.AddScreen(confirmDelete, e.PlayerIndex);
         }
@@ -94,12 +96,12 @@ namespace BombermanAdventure.ScreenManagement.Screens
         void ConfirmDeleteAccepted(object sender, PlayerIndexEventArgs e)
         {
             //delete and store xml   
-            int i = 0;
-            foreach(Player p in PlayerListStorage.PlayerList.profiles) 
+            var i = 0;
+            foreach (var p in PlayerListStorage.PlayerList.Profiles)
             {
                 if (p.Name == BombermanAdventureGame.ActivePlayer.Name)
                 {
-                    PlayerListStorage.PlayerList.profiles.RemoveAt(i);
+                    PlayerListStorage.PlayerList.Profiles.RemoveAt(i);
                     break;
                 }
                 i++;
