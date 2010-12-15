@@ -43,4 +43,11 @@ Content\Models\Walls\wall_0.xnb
 Content\Models\Walls\water_0.xnb
 Content\Models\Walls\Blueice_0.xnb
 Content\Models\Walls\lava_0.xnb
+Content\Models\Bonuses\bomb.xnb
+Content\Models\Bonuses\explosion.xnb
+Content\Models\Bonuses\addBomb.xnb
+Content\Models\Bonuses\blade.xnb
+Content\Models\Bonuses\flame.xnb
+Content\Models\Bonuses\bomb_0.xnb
+Content\Models\Bonuses\explosion_0.xnb
 Content\sound\intro.wma
