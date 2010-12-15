@@ -26,7 +26,7 @@ namespace BombermanAdventure.Models.GameModels.Bombs
             this.modelPosition = modelPosition;
             this.player = player;
             this.creationTime = gameTime.TotalGameTime;
-            this.range = player.BombRange;
+            this.range = player.PlayerProfile.BombRange;
             this.isCollidable = false;
 
             boundingSphere = new BoundingSphere(modelPosition, 5.0f);

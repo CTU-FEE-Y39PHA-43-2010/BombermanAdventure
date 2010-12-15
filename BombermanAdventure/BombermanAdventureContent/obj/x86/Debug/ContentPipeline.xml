@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\blank.xnb</Output>
-      <Time>2010-12-15T07:27:01.1533609+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\blank.xnb</Output>
+      <Time>2010-11-02T11:43:35.687609+01:00</Time>
     </Item>
     <Item>
       <Source>images\gradient.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\gradient.xnb</Output>
-      <Time>2010-12-15T07:27:01.1593612+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\gradient.xnb</Output>
+      <Time>2010-11-02T11:43:36.156737+01:00</Time>
     </Item>
     <Item>
       <Source>images\bomb.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\bomb.xnb</Output>
-      <Time>2010-12-15T07:27:01.1583612+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\bomb.xnb</Output>
+      <Time>2010-11-03T12:21:45.027+01:00</Time>
     </Item>
     <Item>
       <Source>images\background.jpg</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\background.xnb</Output>
-      <Time>2010-12-15T07:27:01.1583612+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\background.xnb</Output>
+      <Time>2010-12-07T19:12:51.638+01:00</Time>
     </Item>
     <Item>
       <Source>images\bomba.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\bomba.xnb</Output>
-      <Time>2010-12-15T07:27:01.1593612+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\bomba.xnb</Output>
+      <Time>2010-12-08T03:21:13.28+01:00</Time>
     </Item>
     <Item>
       <Source>images\loading_background.jpg</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\loading_background.xnb</Output>
-      <Time>2010-12-15T07:27:01.1743621+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\loading_background.xnb</Output>
+      <Time>2010-12-13T21:35:48.4035+01:00</Time>
     </Item>
     <Item>
       <Source>pawball.tga</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\pawball.xnb</Output>
-      <Time>2010-12-15T07:27:01.4313768+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\pawball.xnb</Output>
+      <Time>2010-12-13T22:47:31.83365+01:00</Time>
     </Item>
     <Item>
       <Source>bomberHUD.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\bomberHUD.xnb</Output>
-      <Time>2010-12-15T07:27:01.154361+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\bomberHUD.xnb</Output>
+      <Time>2010-12-13T22:49:30.05075+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\wall.ppm</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall.xnb</Output>
-      <Time>2010-12-09T00:58:23.3204594+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall.xnb</Output>
+      <Time>2010-12-15T09:25:41.844+01:00</Time>
     </Item>
     <Item>
       <Source>Models\wall.ppm</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\wall.xnb</Output>
-      <Time>2010-12-15T07:27:01.1533609+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\wall.xnb</Output>
+      <Time>2010-12-13T23:29:19.74455+01:00</Time>
     </Item>
     <Item>
       <Source>Models\2_floor.ppm</Source>
@@ -97,8 +97,35 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor.xnb</Output>
-      <Time>2010-12-15T07:27:01.0283537+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor.xnb</Output>
+      <Time>2010-12-13T23:29:40.61835+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Walls\water.ppm</Source>
+      <Name>Models\Walls\water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\water.xnb</Output>
+      <Time>2010-12-15T09:25:41.845+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Walls\lava.ppm</Source>
+      <Name>Models\Walls\lava</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava.xnb</Output>
+      <Time>2010-12-15T09:25:41.836+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Walls\Blueice.ppm</Source>
+      <Name>Models\Walls\Blueice</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice.xnb</Output>
+      <Time>2010-12-15T09:25:41.829+01:00</Time>
     </Item>
     <Item>
       <Source>gamefont.spritefont</Source>
@@ -106,8 +133,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\gamefont.xnb</Output>
-      <Time>2010-12-15T07:27:01.155361+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\gamefont.xnb</Output>
+      <Time>2010-11-02T11:43:36.0159986+01:00</Time>
     </Item>
     <Item>
       <Source>menufont.spritefont</Source>
@@ -115,8 +142,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\menufont.xnb</Output>
-      <Time>2010-12-15T07:27:01.1753622+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2010-11-02T11:43:36.1880122+01:00</Time>
     </Item>
     <Item>
       <Source>BAFont.spritefont</Source>
@@ -124,8 +151,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\BAFont.xnb</Output>
-      <Time>2010-12-15T07:27:01.0213533+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\BAFont.xnb</Output>
+      <Time>2010-12-07T21:49:54.394+01:00</Time>
     </Item>
     <Item>
       <Source>sound\intro.mp3</Source>
@@ -133,9 +160,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\intro.xnb</Output>
-      <Extra>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\intro.wma</Extra>
-      <Time>2010-12-15T07:27:01.5213819+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\intro.xnb</Output>
+      <Extra>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\intro.wma</Extra>
+      <Time>2010-10-24T11:49:46+02:00</Time>
     </Item>
     <Item>
       <Source>sound\menuDown.wav</Source>
@@ -143,8 +170,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\menuDown.xnb</Output>
-      <Time>2010-12-15T07:27:01.5243821+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\menuDown.xnb</Output>
+      <Time>2010-11-03T15:27:05.898+01:00</Time>
     </Item>
     <Item>
       <Source>sound\menuUp.wav</Source>
@@ -152,8 +179,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\menuUp.xnb</Output>
-      <Time>2010-12-15T07:27:01.5263822+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\menuUp.xnb</Output>
+      <Time>2010-11-03T15:27:05.901+01:00</Time>
     </Item>
     <Item>
       <Source>sphere.fbx</Source>
@@ -161,13 +188,13 @@
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sphere.xnb</Output>
-      <Time>2010-12-15T07:27:01.5343827+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sphere.xnb</Output>
+      <Time>2010-12-13T22:47:39.65165+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\sphere_0.xml</Key>
-        <Value>2010-12-15T07:27:57.4635817+01:00</Value>
+        <Value>2010-12-15T09:29:08.475+01:00</Value>
       </Dependency>
-      <Request>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\pawball_0.xnb</Request>
+      <Request>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\pawball_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Bomb.x</Source>
@@ -175,11 +202,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bomb.xnb</Output>
-      <Time>2010-12-15T07:27:01.0413545+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bomb.xnb</Output>
+      <Time>2010-12-13T22:48:16.64755+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Bomb_0.xml</Key>
-        <Value>2010-12-15T07:27:58.5526439+01:00</Value>
+        <Value>2010-12-15T09:29:09.177+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -188,13 +215,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\BrickWall.xnb</Output>
-      <Time>2010-12-15T07:27:01.1083583+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\BrickWall.xnb</Output>
+      <Time>2010-12-13T22:48:34.72315+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\BrickWall_0.xml</Key>
-        <Value>2010-12-15T07:27:58.8216593+01:00</Value>
+        <Value>2010-12-15T09:29:09.248+01:00</Value>
       </Dependency>
-      <Request>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\wall_0.xnb</Request>
+      <Request>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\wall_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Ground1.x</Source>
@@ -202,13 +229,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Ground1.xnb</Output>
-      <Time>2010-12-15T07:27:01.1093584+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Ground1.xnb</Output>
+      <Time>2010-12-13T22:48:41.12565+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Ground1_0.xml</Key>
-        <Value>2010-12-15T07:27:59.4826971+01:00</Value>
+        <Value>2010-12-15T09:29:09.494+01:00</Value>
       </Dependency>
-      <Request>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor_0.xnb</Request>
+      <Request>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\GroundUnit.x</Source>
@@ -216,11 +243,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\GroundUnit.xnb</Output>
-      <Time>2010-12-15T07:27:01.1393601+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\GroundUnit.xnb</Output>
+      <Time>2010-12-13T22:48:44.35465+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\GroundUnit_0.xml</Key>
-        <Value>2010-12-15T07:28:00.3357459+01:00</Value>
+        <Value>2010-12-15T09:29:10.023+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -229,11 +256,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\IndestructibleBlock.xnb</Output>
-      <Time>2010-12-15T07:27:01.1403602+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\IndestructibleBlock.xnb</Output>
+      <Time>2010-12-13T22:48:51.65825+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\IndestructibleBlock_0.xml</Key>
-        <Value>2010-12-15T07:28:00.5827601+01:00</Value>
+        <Value>2010-12-15T09:29:10.084+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -242,11 +269,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Player.xnb</Output>
-      <Time>2010-12-15T08:22:59.3144367+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Player.xnb</Output>
+      <Time>2010-12-15T09:25:41.827+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Player_0.xml</Key>
-        <Value>2010-12-15T08:24:45.0904868+01:00</Value>
+        <Value>2010-12-15T09:29:10.261+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -255,13 +282,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\BrickWall.xnb</Output>
-      <Time>2010-12-15T07:27:01.1503607+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\BrickWall.xnb</Output>
+      <Time>2010-12-13T22:48:59.80225+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Walls\BrickWall_0.xml</Key>
-        <Value>2010-12-15T07:28:01.0987896+01:00</Value>
+        <Value>2010-12-15T09:29:10.343+01:00</Value>
       </Dependency>
-      <Request>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall_0.xnb</Request>
+      <Request>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Bombs\CommonBomb.x</Source>
@@ -269,11 +296,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\CommonBomb.xnb</Output>
-      <Time>2010-12-15T07:27:01.0543552+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\CommonBomb.xnb</Output>
+      <Time>2010-12-13T22:49:07.35825+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Bombs\CommonBomb_0.xml</Key>
-        <Value>2010-12-15T07:28:01.7568272+01:00</Value>
+        <Value>2010-12-15T09:29:10.596+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -282,11 +309,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\ElectricBomb.xnb</Output>
-      <Time>2010-12-15T07:27:01.067356+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\ElectricBomb.xnb</Output>
+      <Time>2010-12-13T22:49:09.48465+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Bombs\ElectricBomb_0.xml</Key>
-        <Value>2010-12-15T07:28:02.0348431+01:00</Value>
+        <Value>2010-12-15T09:29:10.726+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -295,11 +322,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\MudBomb.xnb</Output>
-      <Time>2010-12-15T07:27:01.0803567+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\MudBomb.xnb</Output>
+      <Time>2010-12-13T22:49:11.42065+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Bombs\MudBomb_0.xml</Key>
-        <Value>2010-12-15T07:28:02.3428607+01:00</Value>
+        <Value>2010-12-15T09:29:10.826+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -308,11 +335,93 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\WaterBomb.xnb</Output>
-      <Time>2010-12-15T07:27:01.1063582+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\WaterBomb.xnb</Output>
+      <Time>2010-12-13T22:49:16.43515+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Bombs\WaterBomb_0.xml</Key>
-        <Value>2010-12-15T07:28:02.661879+01:00</Value>
+        <Value>2010-12-15T09:29:11.027+01:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Walls\waterWall.x</Source>
+      <Name>Models\Walls\waterWall</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\waterWall.xnb</Output>
+      <Time>2010-12-15T09:25:41.848+01:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Walls\waterWall_0.xml</Key>
+        <Value>2010-12-15T09:29:11.102+01:00</Value>
+      </Dependency>
+      <Request>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\water_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Walls\tornadoWall.x</Source>
+      <Name>Models\Walls\tornadoWall</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\tornadoWall.xnb</Output>
+      <Time>2010-12-15T09:25:41.842+01:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Walls\tornadoWall_0.xml</Key>
+        <Value>2010-12-15T09:29:11.28+01:00</Value>
+      </Dependency>
+      <Request>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Walls\lavaWall.x</Source>
+      <Name>Models\Walls\lavaWall</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lavaWall.xnb</Output>
+      <Time>2010-12-15T09:25:41.839+01:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Walls\lavaWall_0.xml</Key>
+        <Value>2010-12-15T09:29:11.427+01:00</Value>
+      </Dependency>
+      <Request>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Walls\commonWall.x</Source>
+      <Name>Models\Walls\commonWall</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\commonWall.xnb</Output>
+      <Time>2010-12-15T09:25:41.833+01:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Walls\commonWall_0.xml</Key>
+        <Value>2010-12-15T09:29:11.697+01:00</Value>
+      </Dependency>
+      <Request>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall_0.xnb</Request>
+    </Item>
+    <Item>
+      <Source>Models\Enemies\enemy1.x</Source>
+      <Name>Models\Enemies\enemy1</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Enemies\enemy1.xnb</Output>
+      <Time>2010-12-15T09:25:41.758+01:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Enemies\enemy1_0.xml</Key>
+        <Value>2010-12-15T09:29:11.824+01:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Enemies\enemy2.x</Source>
+      <Name>Models\Enemies\enemy2</Name>
+      <Importer>XImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Enemies\enemy2.xnb</Output>
+      <Time>2010-12-15T09:25:41.787+01:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Enemies\enemy2_0.xml</Key>
+        <Value>2010-12-15T09:29:11.996+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -320,7 +429,7 @@
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\sphere_0.xml</Output>
-      <Time>2010-12-15T07:27:01.5343827+01:00</Time>
+      <Time>2010-12-13T22:47:39.65165+01:00</Time>
     </Item>
     <Item>
       <Source>pawball.tga</Source>
@@ -335,22 +444,22 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\pawball_0.xnb</Output>
-      <Time>2010-12-15T07:27:01.4313768+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\pawball_0.xnb</Output>
+      <Time>2010-12-13T22:47:31.83365+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Bomb.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Bomb_0.xml</Output>
-      <Time>2010-12-15T07:27:01.0413545+01:00</Time>
+      <Time>2010-12-13T22:48:16.64755+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickWall.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\BrickWall_0.xml</Output>
-      <Time>2010-12-15T07:27:01.1083583+01:00</Time>
+      <Time>2010-12-13T22:48:34.72315+01:00</Time>
     </Item>
     <Item>
       <Source>Models\wall.ppm</Source>
@@ -365,15 +474,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\wall_0.xnb</Output>
-      <Time>2010-12-15T07:27:01.1533609+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\wall_0.xnb</Output>
+      <Time>2010-12-13T23:29:19.74455+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Ground1.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Ground1_0.xml</Output>
-      <Time>2010-12-15T07:27:01.1093584+01:00</Time>
+      <Time>2010-12-13T22:48:41.12565+01:00</Time>
     </Item>
     <Item>
       <Source>Models\2_floor.ppm</Source>
@@ -388,36 +497,36 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor_0.xnb</Output>
-      <Time>2010-12-15T07:27:01.0283537+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor_0.xnb</Output>
+      <Time>2010-12-13T23:29:40.61835+01:00</Time>
     </Item>
     <Item>
       <Source>Models\GroundUnit.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\GroundUnit_0.xml</Output>
-      <Time>2010-12-15T07:27:01.1393601+01:00</Time>
+      <Time>2010-12-13T22:48:44.35465+01:00</Time>
     </Item>
     <Item>
       <Source>Models\IndestructibleBlock.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\IndestructibleBlock_0.xml</Output>
-      <Time>2010-12-15T07:27:01.1403602+01:00</Time>
+      <Time>2010-12-13T22:48:51.65825+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Player.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Player_0.xml</Output>
-      <Time>2010-12-15T08:22:59.3144367+01:00</Time>
+      <Time>2010-12-15T09:25:41.827+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\BrickWall.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Walls\BrickWall_0.xml</Output>
-      <Time>2010-12-15T07:27:01.1503607+01:00</Time>
+      <Time>2010-12-13T22:48:59.80225+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\wall.ppm</Source>
@@ -432,143 +541,43 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall_0.xnb</Output>
-      <Time>2010-12-09T00:58:23.3204594+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall_0.xnb</Output>
+      <Time>2010-12-15T09:25:41.844+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Bombs\CommonBomb.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Bombs\CommonBomb_0.xml</Output>
-      <Time>2010-12-15T07:27:01.0543552+01:00</Time>
+      <Time>2010-12-13T22:49:07.35825+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Bombs\ElectricBomb.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Bombs\ElectricBomb_0.xml</Output>
-      <Time>2010-12-15T07:27:01.067356+01:00</Time>
+      <Time>2010-12-13T22:49:09.48465+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Bombs\MudBomb.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Bombs\MudBomb_0.xml</Output>
-      <Time>2010-12-15T07:27:01.0803567+01:00</Time>
+      <Time>2010-12-13T22:49:11.42065+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Bombs\WaterBomb.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Bombs\WaterBomb_0.xml</Output>
-      <Time>2010-12-15T07:27:01.1063582+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Walls\water.ppm</Source>
-      <Name>Models\Walls\water</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\water.xnb</Output>
-      <Time>2010-12-15T07:31:33.2709251+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Walls\lava.ppm</Source>
-      <Name>Models\Walls\lava</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava.xnb</Output>
-      <Time>2010-12-15T07:34:18.785392+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Walls\waterWall.x</Source>
-      <Name>Models\Walls\waterWall</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\waterWall.xnb</Output>
-      <Time>2010-12-15T07:43:59.9496327+01:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Walls\waterWall_0.xml</Key>
-        <Value>2010-12-15T08:27:38.7844215+01:00</Value>
-      </Dependency>
-      <Request>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\water_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\Walls\tornadoWall.x</Source>
-      <Name>Models\Walls\tornadoWall</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\tornadoWall.xnb</Output>
-      <Time>2010-12-15T08:35:04.7229277+01:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Walls\tornadoWall_0.xml</Key>
-        <Value>2010-12-15T08:36:29.172758+01:00</Value>
-      </Dependency>
-      <Request>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\Walls\lavaWall.x</Source>
-      <Name>Models\Walls\lavaWall</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lavaWall.xnb</Output>
-      <Time>2010-12-15T07:42:39.7990484+01:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Walls\lavaWall_0.xml</Key>
-        <Value>2010-12-15T08:36:29.9027997+01:00</Value>
-      </Dependency>
-      <Request>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\Walls\commonWall.x</Source>
-      <Name>Models\Walls\commonWall</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\commonWall.xnb</Output>
-      <Time>2010-12-15T07:38:59.1884302+01:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Walls\commonWall_0.xml</Key>
-        <Value>2010-12-15T08:36:30.5708379+01:00</Value>
-      </Dependency>
-      <Request>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\Enemies\enemy1.x</Source>
-      <Name>Models\Enemies\enemy1</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Enemies\enemy1.xnb</Output>
-      <Time>2010-12-15T07:54:50.7368556+01:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Enemies\enemy1_0.xml</Key>
-        <Value>2010-12-15T08:36:30.9108574+01:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\Enemies\enemy2.x</Source>
-      <Name>Models\Enemies\enemy2</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Enemies\enemy2.xnb</Output>
-      <Time>2010-12-15T07:59:12.7428415+01:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Enemies\enemy2_0.xml</Key>
-        <Value>2010-12-15T08:36:31.3028798+01:00</Value>
-      </Dependency>
+      <Time>2010-12-13T22:49:16.43515+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\waterWall.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Walls\waterWall_0.xml</Output>
-      <Time>2010-12-15T07:43:59.9496327+01:00</Time>
+      <Time>2010-12-15T09:25:41.848+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\water.ppm</Source>
@@ -583,24 +592,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\water_0.xnb</Output>
-      <Time>2010-12-15T07:31:33.2709251+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\water_0.xnb</Output>
+      <Time>2010-12-15T09:25:41.845+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\tornadoWall.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Walls\tornadoWall_0.xml</Output>
-      <Time>2010-12-15T08:35:04.7229277+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Walls\Blueice.ppm</Source>
-      <Name>Models\Walls\Blueice</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice.xnb</Output>
-      <Time>2010-12-15T08:34:16.1721508+01:00</Time>
+      <Time>2010-12-15T09:25:41.842+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\Blueice.ppm</Source>
@@ -615,15 +615,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice_0.xnb</Output>
-      <Time>2010-12-15T08:34:16.1721508+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice_0.xnb</Output>
+      <Time>2010-12-15T09:25:41.829+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\lavaWall.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Walls\lavaWall_0.xml</Output>
-      <Time>2010-12-15T07:42:39.7990484+01:00</Time>
+      <Time>2010-12-15T09:25:41.839+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\lava.ppm</Source>
@@ -638,29 +638,29 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava_0.xnb</Output>
-      <Time>2010-12-15T07:34:18.785392+01:00</Time>
+      <Output>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava_0.xnb</Output>
+      <Time>2010-12-15T09:25:41.836+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Walls\commonWall.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Walls\commonWall_0.xml</Output>
-      <Time>2010-12-15T07:38:59.1884302+01:00</Time>
+      <Time>2010-12-15T09:25:41.833+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Enemies\enemy1.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Enemies\enemy1_0.xml</Output>
-      <Time>2010-12-15T07:54:50.7368556+01:00</Time>
+      <Time>2010-12-15T09:25:41.758+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Enemies\enemy2.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Enemies\enemy2_0.xml</Output>
-      <Time>2010-12-15T07:59:12.7428415+01:00</Time>
+      <Time>2010-12-15T09:25:41.787+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -668,10 +668,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>E:\school\git2\BombermanAdventure\BombermanAdventureContent\</RootDirectory>
-      <LoggerRootDirectory>E:\school\git2\BombermanAdventure\BombermanAdventure\</LoggerRootDirectory>
-      <IntermediateDirectory>E:\school\git2\BombermanAdventure\BombermanAdventureContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -700,7 +700,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2010-09-22T23:34:09.2488337+02:00</Value>
+        <Value>2010-10-06T18:53:19.477384+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

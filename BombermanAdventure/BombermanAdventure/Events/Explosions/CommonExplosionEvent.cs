@@ -9,6 +9,6 @@ namespace BombermanAdventure.Events.Explosions
 {
     class CommonExplosionEvent : AbstractExplosionEvent
     {
-        public CommonExplosionEvent(AbstractExplosion model, AbstractPlayer player) : base(model, player) { }
+        public CommonExplosionEvent(AbstractExplosion model, Player player) : base(model, player) { }
     }
 }

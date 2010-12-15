@@ -23,14 +23,12 @@ namespace BombermanAdventure.Models
         public override void Update(GameTime gameTime)
         {
             models.Update(gameTime);
-
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.Black, 1.0f, 0);
-            //GraphicsDevice.BlendState = BlendState.AlphaBlend;
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
             models.DrawLabyrinth(gameTime);

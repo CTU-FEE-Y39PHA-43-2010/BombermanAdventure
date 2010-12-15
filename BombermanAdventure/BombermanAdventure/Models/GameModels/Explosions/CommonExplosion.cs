@@ -10,7 +10,7 @@ namespace BombermanAdventure.Models.GameModels.Explosions
 {
     class CommonExplosion : AbstractExplosion
     {
-        public CommonExplosion(Game game, AbstractPlayer player, Vector3 position, GameTime gameTime)
+        public CommonExplosion(Game game, Player player, Vector3 position, GameTime gameTime)
             : base(game, player, position, gameTime)
         {
             color = new Vector3(150, 0, 0);

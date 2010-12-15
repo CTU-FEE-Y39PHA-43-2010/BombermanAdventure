@@ -6,22 +6,23 @@ using BombermanAdventure.Models.GameModels.Bombs;
 
 namespace BombermanAdventure.Models.GameModels.Players
 {
-    class Player : AbstractPlayer
+    class Player : AbstractGameModel
     {
-        enum Bombs { COMMON, WATER, MUD, ELECTRIC }
+        enum Bombs { Common, Water, Mud, Electric }
 
-        Bombs selectedBombType;
-        KeyboardState oldState;
-        Game game;
-
-        Vector3 min, max;
-
-        private Vector3 prevModelPosition;
+        private Bombs _selectedBombType;
+        private KeyboardState _oldState;
+        private Vector3 _min;
+        private Vector3 _max;
+        private Vector3 _prevModelPosition;
+        public Profile PlayerProfile { get; set; }
+        public int BombsCount { get; set; }
 
         public Player(Game game, Profile profile, int x, int y)
-            : base(game, profile, x, y)
+            : base(game)
         {
-            this.game = game;
+            PlayerProfile = profile;
+            base.modelPosition = new Vector3(x * 20, 10, y * 20);
         }
 
         public override void Initialize()
@@ -29,22 +30,12 @@ namespace BombermanAdventure.Models.GameModels.Players
             base.modelName = "Models/Player";
             base.modelScale = 1f;
 
-
             modelRotation = new Vector3();
+            _selectedBombType = Bombs.Common;
+            _prevModelPosition = modelPosition;
 
-            life = 100;
-            speed = 1f;
-
-            selectedBombType = Bombs.COMMON;
-            possibleBombsCount = 3;
-            bombsCount = 0;
-            // BombRange = 6; <- fix this................
-            bombRange = 1;
-
-            prevModelPosition = modelPosition;
-
-            min = new Vector3();
-            max = new Vector3();
+            _min = new Vector3();
+            _max = new Vector3();
             boundingSphere = new BoundingSphere();
             boundingBox = new BoundingBox();
             UpdateBoundingBox();
@@ -54,21 +45,21 @@ namespace BombermanAdventure.Models.GameModels.Players
 
         void UpdateBoundingBox()
         {
-            min.X = modelPosition.X - 9.9f;
-            min.Y = modelPosition.Y - 9.9f;
-            min.Z = modelPosition.Z - 9.9f;
-            max.X = modelPosition.X + 9.9f;
-            max.Y = modelPosition.Y + 9.9f;
-            max.Z = modelPosition.Z + 9.9f;
-            boundingBox.Min = min;
-            boundingBox.Max = max;
+            _min.X = modelPosition.X - 9.9f;
+            _min.Y = modelPosition.Y - 9.9f;
+            _min.Z = modelPosition.Z - 9.9f;
+            _max.X = modelPosition.X + 9.9f;
+            _max.Y = modelPosition.Y + 9.9f;
+            _max.Z = modelPosition.Z + 9.9f;
+            boundingBox.Min = _min;
+            boundingBox.Max = _max;
             boundingSphere.Center = modelPosition;
             boundingSphere.Radius = 7.5f;
         }
 
         public override void Update(GameTime gameTime)
         {
-            prevModelPosition = modelPosition;
+            _prevModelPosition = modelPosition;
             KeyBoardHandler(gameTime);
             UpdateBoundingBox();
             base.Update(gameTime);
@@ -79,15 +70,15 @@ namespace BombermanAdventure.Models.GameModels.Players
         {
             if (ieEvent is Events.Bombs.AbstractBombExplosionEvent)
             {
-                Events.Bombs.AbstractBombExplosionEvent leEvent = (Events.Bombs.AbstractBombExplosionEvent)ieEvent;
+                var leEvent = (Events.Bombs.AbstractBombExplosionEvent)ieEvent;
                 if (leEvent.Player == this)
                 {
-                    bombsCount--;
+                    BombsCount--;
                 }
             }
             if (ieEvent is Events.Collisions.CollisionEvent)
             {
-                modelPosition = prevModelPosition;
+                modelPosition = _prevModelPosition;
             }
         }
 
@@ -101,48 +92,48 @@ namespace BombermanAdventure.Models.GameModels.Players
 
             if (ks.IsKeyDown(Keys.Space))
             {
-                if (!oldState.IsKeyDown(Keys.Space))
+                if (!_oldState.IsKeyDown(Keys.Space))
                 {
-                    this.PutBomb(gameTime);
+                    PutBomb(gameTime);
                 }
             }
             if (ks.IsKeyDown(Keys.LeftControl))
             {
-                if (!oldState.IsKeyDown(Keys.LeftControl))
+                if (!_oldState.IsKeyDown(Keys.LeftControl))
                 {
-                    this.ChageBombType(gameTime);
+                    ChageBombType(gameTime);
                 }
             }
-            oldState = ks;
+            _oldState = ks;
         }
 
         private void ChageBombType(GameTime gameTime)
         {
-            switch (selectedBombType)
+            switch (_selectedBombType)
             {
-                case Bombs.COMMON:
-                    selectedBombType = Bombs.WATER;
+                case Bombs.Common:
+                    _selectedBombType = Bombs.Water;
                     break;
-                case Bombs.WATER:
-                    selectedBombType = Bombs.ELECTRIC;
+                case Bombs.Water:
+                    _selectedBombType = Bombs.Electric;
                     break;
-                case Bombs.ELECTRIC:
-                    selectedBombType = Bombs.MUD;
+                case Bombs.Electric:
+                    _selectedBombType = Bombs.Mud;
                     break;
-                case Bombs.MUD:
-                    selectedBombType = Bombs.COMMON;
+                case Bombs.Mud:
+                    _selectedBombType = Bombs.Common;
                     break;
             }
         }
 
-        public override void PutBomb(GameTime gameTime)
+        public void PutBomb(GameTime gameTime)
         {
-            if (bombsCount < possibleBombsCount)
+            if (BombsCount < PlayerProfile.PossibleBombsCount)
             {
-                switch (selectedBombType)
+                switch (_selectedBombType)
                 {
-                    case Bombs.COMMON:
-                        Vector3 pos = new Vector3();
+                    case Bombs.Common:
+                        var pos = new Vector3();
                         if ((Math.Abs(modelPosition.X % 20)) >= 10)
                         {
                             if (modelPosition.X % 20 < 0)
@@ -179,99 +170,99 @@ namespace BombermanAdventure.Models.GameModels.Players
                         //Vector3 pos = new Vector3(modelPosition.X - (modelPosition.X % 20), modelPosition.Y, modelPosition.Z - (modelPosition.Z % 20));
                         base.models.AddBomb(new CommonBomb(game, pos, this, gameTime));
                         break;
-                    case Bombs.WATER:
+                    case Bombs.Water:
                         base.models.AddBomb(new WaterBomb(game, modelPosition, this, gameTime));
                         break;
-                    case Bombs.ELECTRIC:
+                    case Bombs.Electric:
                         base.models.AddBomb(new ElectricBomb(game, modelPosition, this, gameTime));
                         break;
-                    case Bombs.MUD:
+                    case Bombs.Mud:
                         base.models.AddBomb(new MudBomb(game, modelPosition, this, gameTime));
                         break;
                 }
-                bombsCount++;
+                BombsCount++;
             }
         }
 
-        public override void Fire()
+        public void Fire()
         {
             throw new NotImplementedException();
         }
 
         #region Ovladani Chuze
 
-        public override void GoUp()
+        public void GoUp()
         {
             switch (models.Camera.position)
             {
                 case Cameras.Camera.Position.FRONT:
-                    modelPosition.X -= speed;
+                    modelPosition.X -= PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.LEFT:
-                    modelPosition.Z += speed;
+                    modelPosition.Z += PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.BACK:
-                    modelPosition.X += speed;
+                    modelPosition.X += PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.RIGHT:
-                    modelPosition.Z -= speed;
+                    modelPosition.Z -= PlayerProfile.Speed;
                     break;
             }
         }
 
-        public override void GoDown()
+        public void GoDown()
         {
             switch (models.Camera.position)
             {
                 case Cameras.Camera.Position.FRONT:
-                    modelPosition.X += speed;
+                    modelPosition.X += PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.LEFT:
-                    modelPosition.Z -= speed;
+                    modelPosition.Z -= PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.BACK:
-                    modelPosition.X -= speed;
+                    modelPosition.X -= PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.RIGHT:
-                    modelPosition.Z += speed;
+                    modelPosition.Z += PlayerProfile.Speed;
                     break;
             }
         }
 
-        public override void GoLeft()
+        public void GoLeft()
         {
             switch (models.Camera.position)
             {
                 case Cameras.Camera.Position.FRONT:
-                    modelPosition.Z += speed;
+                    modelPosition.Z += PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.LEFT:
-                    modelPosition.X += speed;
+                    modelPosition.X += PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.BACK:
-                    modelPosition.Z -= speed;
+                    modelPosition.Z -= PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.RIGHT:
-                    modelPosition.X -= speed;
+                    modelPosition.X -= PlayerProfile.Speed;
                     break;
             }
         }
 
-        public override void GoRight()
+        public void GoRight()
         {
             switch (models.Camera.position)
             {
                 case Cameras.Camera.Position.FRONT:
-                    modelPosition.Z -= speed;
+                    modelPosition.Z -= PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.LEFT:
-                    modelPosition.X -= speed;
+                    modelPosition.X -= PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.BACK:
-                    modelPosition.Z += speed;
+                    modelPosition.Z += PlayerProfile.Speed;
                     break;
                 case Cameras.Camera.Position.RIGHT:
-                    modelPosition.X += speed;
+                    modelPosition.X += PlayerProfile.Speed;
                     break;
             }
         }

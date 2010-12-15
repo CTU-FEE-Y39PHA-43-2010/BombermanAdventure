@@ -12,20 +12,16 @@ namespace BombermanAdventure.Events.Collisions
         /// <summary>
         /// instance kolidujiciho hrace
         /// </summary>
-        AbstractPlayer player;
-        AbstractPlayer Player 
-        {
-            get { return player; }
-        }
+        private Player Player { get; set; }
 
         /// <summary>
         /// konstruktor eventu pro kolize hrace s predmetem
         /// </summary>
         /// <param name="player">kolidujici hrac</param>
         /// <param name="model">kolidujici objekt</param>
-        public CollisionEvent(AbstractPlayer player, AbstractGameModel model) : base(model) 
+        public CollisionEvent(Player player, AbstractGameModel model) : base(model) 
         {
-            this.player = player;
+            Player = player;
         }
     }
 }

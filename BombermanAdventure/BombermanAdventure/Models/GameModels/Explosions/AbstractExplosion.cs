@@ -28,15 +28,14 @@ namespace BombermanAdventure.Models.GameModels.Explosions
         protected Vector3 color;
         protected int range;
         protected TimeSpan creationTime;
-        protected AbstractPlayer player;
+        protected Player player;
 
-        public AbstractExplosion(Game game, AbstractPlayer player, Vector3 position, GameTime gameTime)
+        public AbstractExplosion(Game game, Player player, Vector3 position, GameTime gameTime)
             : base(game)
         {
             this.creationTime = gameTime.TotalGameTime;
             this.modelPosition = new Vector3(position.X, 0, position.Z);
-            //this.range = player.BombRange; // I HAD TO DO IT THIS WAY FOR TESTING... FIX PROFILE NULL REFERENCE....
-            range = 6;
+            this.range = player.PlayerProfile.BombRange;
             this.player = player;
             this.models = ModelList.GetInstance();
         }

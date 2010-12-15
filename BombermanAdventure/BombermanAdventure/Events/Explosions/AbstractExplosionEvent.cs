@@ -12,20 +12,16 @@ namespace BombermanAdventure.Events.Explosions
         /// <summary>
         /// hrac ktery bombu polozil
         /// </summary>
-        protected AbstractPlayer player;
-        public AbstractPlayer Player 
-        {
-            get { return player; }
-        }
+        public Player Player { get; private set; }
 
         /// <summary>
         /// konstruktor
         /// </summary>
         /// <param name="model">exploze</param>
         /// <param name="player">hrac ktery bombu polozil</param>
-        public AbstractExplosionEvent(AbstractExplosion model, AbstractPlayer player) : base(model) 
+        public AbstractExplosionEvent(AbstractExplosion model, Player player) : base(model) 
         {
-            this.player = player;
+            Player = player;
         }
     }
 }

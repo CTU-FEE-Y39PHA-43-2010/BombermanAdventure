@@ -130,3 +130,15 @@ E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Model
 E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice.xnb
 E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice_0.xnb
 E:\school\git2\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava_0.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\water.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\waterWall.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\tornadoWall.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lavaWall.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\commonWall.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Enemies\enemy1.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Enemies\enemy2.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\water_0.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\Blueice_0.xnb
+C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\lava_0.xnb
