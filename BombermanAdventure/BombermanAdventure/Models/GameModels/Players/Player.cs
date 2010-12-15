@@ -27,7 +27,7 @@ namespace BombermanAdventure.Models.GameModels.Players
         public override void Initialize()
         {
             base.modelName = "Models/Player";
-            base.modelScale = 0.1f;
+            base.modelScale = 1f;
 
 
             modelRotation = new Vector3();

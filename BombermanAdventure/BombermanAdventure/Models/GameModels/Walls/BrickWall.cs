@@ -12,8 +12,8 @@ namespace BombermanAdventure.Models.GameModels.Walls
 
         public override void Initialize()
         {
-            base.modelName = "Models/Walls/BrickWall";
-            base.modelScale = 0.1f;
+            base.modelName = "Models/Walls/commonWall";
+            base.modelScale = 1f;
             modelRotation = new Vector3();
             base.Initialize();
         }

@@ -32,3 +32,15 @@ Content\pawball_0.xnb
 Content\Models\wall_0.xnb
 Content\Models\2_floor_0.xnb
 Content\Models\Walls\wall_0.xnb
+Content\Models\Walls\water.xnb
+Content\Models\Walls\lava.xnb
+Content\Models\Walls\waterWall.xnb
+Content\Models\Walls\tornadoWall.xnb
+Content\Models\Walls\lavaWall.xnb
+Content\Models\Walls\commonWall.xnb
+Content\Models\Enemies\enemy1.xnb
+Content\Models\Enemies\enemy2.xnb
+Content\Models\Walls\water_0.xnb
+Content\Models\Walls\Blueice.xnb
+Content\Models\Walls\Blueice_0.xnb
+Content\Models\Walls\lava_0.xnb
