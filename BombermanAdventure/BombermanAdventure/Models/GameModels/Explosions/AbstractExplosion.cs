@@ -8,7 +8,7 @@ namespace BombermanAdventure.Models.GameModels.Explosions
 {
     abstract class AbstractExplosion : AbstractGameModel
     {
-
+        public List<AbstractEnemy> KilligEnemies { get; set; }
         protected List<ExplosionItem> explosionItems;
         public List<ExplosionItem> ExplosionItems
         {
@@ -38,10 +38,23 @@ namespace BombermanAdventure.Models.GameModels.Explosions
             KillingPlayer = false;
         }
 
+        public bool isEnemyKilled(AbstractEnemy enemy)
+        {
+            foreach (var killingEnemy in KilligEnemies)
+            {
+                if (killingEnemy == enemy)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public override void Initialize()
         {
             explosionItems = new List<ExplosionItem>();
             boundingBoxes = new List<BoundingBox>();
+            KilligEnemies = new List<AbstractEnemy>();
             LoadContent();
         }
 

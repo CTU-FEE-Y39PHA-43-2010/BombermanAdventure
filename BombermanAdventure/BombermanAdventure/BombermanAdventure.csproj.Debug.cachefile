@@ -53,4 +53,9 @@ Content\Models\Walls\lava_0.xnb
 Content\Models\Bonuses\bomb_0.xnb
 Content\Models\Bonuses\explosion_0.xnb
 Content\Models\Bombs\FireBomb.xnb
+Content\images\win.xnb
+Content\sound\bomb-02.xnb
+Content\sound\death.xnb
+Content\sound\ek.xnb
+Content\sound\win.xnb
 Content\sound\intro.wma

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using BombermanAdventure.Models.GameModels.Bunuses;
 using Microsoft.Xna.Framework;
 using BombermanAdventure.Cameras;
 using BombermanAdventure.Models.GameModels;
@@ -95,6 +97,18 @@ namespace BombermanAdventure.Models
             get { return bombs; }
         }
 
+        List<AbstractEnemy> enemies;
+        public List<AbstractEnemy> Enemies
+        {
+            get { return enemies; }
+        }
+
+        List<AbstractBonus> bonuses;
+        public List<AbstractBonus> Bonuses
+        {
+            get { return bonuses; }
+        }
+
         /// <summary>
         /// modely zdi
         /// </summary>
@@ -118,6 +132,8 @@ namespace BombermanAdventure.Models
         {
             bombs = new List<AbstractBomb>();
             walls = new List<AbstractWall>();
+            bonuses = new List<AbstractBonus>(); 
+            enemies = new List<AbstractEnemy>();
             explosions = new List<AbstractExplosion>();
         }
 
@@ -131,6 +147,11 @@ namespace BombermanAdventure.Models
         public void AddBomb(AbstractBomb bomb)
         {
             bombs.Add(bomb);
+        }
+
+        public void AddEnemy(AbstractEnemy enemy)
+        {
+            enemies.Add(enemy);
         }
 
         public void AddWall(AbstractWall wall)
@@ -153,6 +174,7 @@ namespace BombermanAdventure.Models
             }
             else if (ieEvent is AbstractExplosionEvent)
             {
+                SoundManager.SoundManager.PlayExplosion();
                 AbstractExplosion explosion = (AbstractExplosion)ieEvent.Model;
                 explosions.Remove(explosion);
             }
@@ -161,6 +183,47 @@ namespace BombermanAdventure.Models
                 player.OnEvent(ieEvent, gameTime);
             }
 
+        }
+
+        void CheckForEnemyCollisions(GameTime gameTime)
+        {
+            foreach (LabyrinthBlock block in labyrinth.Blocks)
+            {
+                foreach(var enemy in enemies)
+                {
+                    if (enemy.BoundingBox.Intersects(block.BoundingBox))
+                    {
+                        //block.ChangeColor(new Vector3(0f, 1f, 0f));
+                        enemy.OnEvent(new CollisionEvent(player, block), gameTime);
+                    }
+                }
+            }
+            foreach (var wall in walls)
+            {
+                foreach (var enemy in enemies)
+                {
+                    if (enemy.BoundingBox.Intersects(wall.BoundingBox))
+                    {
+                        enemy.OnEvent(new WallCollisionEvent(player, wall), gameTime);
+                    }
+                }
+            }
+            /*foreach (var enemy1 in enemies)
+            {
+                foreach (var enemy2 in enemies)
+                {
+                    if (enemy1 == enemy2)
+                    {
+                        continue;
+                    }
+                    if (enemy1.BoundingBox.Intersects(enemy2.BoundingBox))
+                    {
+                        //block.ChangeColor(new Vector3(0f, 1f, 0f));
+                        enemy1.OnEvent(new CollisionEvent(player, enemy2), gameTime);
+                        enemy2.OnEvent(new CollisionEvent(player, enemy1), gameTime);
+                    }
+                }
+            }*/
         }
 
         /// <summary>
@@ -172,13 +235,45 @@ namespace BombermanAdventure.Models
             {
                 if (player.BoundingSphere.Intersects(block.BoundingBox))
                 {
-                    block.ChangeColor(new Vector3(0f, 1f, 0f));
+                    //block.ChangeColor(new Vector3(0f, 1f, 0f));
                     player.OnEvent(new CollisionEvent(player, block), gameTime);
                     return;
                 }
             }
 
-            foreach (AbstractWall wall in walls)
+            List<AbstractBonus> bonusesToRemove = new List<AbstractBonus>(2);
+            foreach (var bonus in bonuses)
+            {
+                if (player.BoundingSphere.Intersects(bonus.BoundingBox))
+                {
+                    bonusesToRemove.Add(bonus);
+                }
+            }
+            foreach (var bonus in bonusesToRemove)
+            {
+                if (bonus is BombBonus)
+                {
+                    player.PlayerProfile.PossibleBombsCount++;
+                }
+                if (bonus is SpeedBonus)
+                {
+                    player.PlayerProfile.Speed++;
+                }
+                if (bonus is FlameBonus)
+                {
+                    player.PlayerProfile.BombRange++;
+                }
+                if (bonus is DoorBonus)
+                {
+                    player.Winner = true;
+                    player.PlayerProfile.InGame = false;
+                    SoundManager.SoundManager.PlayWin();
+                    return;
+                }
+                bonuses.Remove(bonus);
+            }
+
+            foreach (var wall in walls)
             {
                 if (player.BoundingSphere.Intersects(wall.BoundingBox))
                 {
@@ -194,22 +289,63 @@ namespace BombermanAdventure.Models
                     return;
                 }
             }
+            foreach (AbstractEnemy enemy in enemies)
+            {
+                if (player.BoundingSphere.Intersects(enemy.BoundingSphere))
+                {
+                    KillPlayer();
+                    return;
+                }
+            }
+            foreach (AbstractBomb bomb in bombs)
+            {
+                foreach (AbstractEnemy enemy in enemies)
+                {
+                    if (enemy.BoundingBox.Intersects(bomb.BoundingSphere) && bomb.isCollidable)
+                    {
+                        enemy.OnEvent(new CollisionEvent(player, bomb), gameTime);
+                        return;
+                    }
+                }
+            }
+        }
+
+        void KillPlayer()
+        {
+            Player.PlayerProfile.Life = 0;
+            Player.Dead = true;
+            Player.PlayerProfile.InGame = false;
+            Player.Remove();
+            SoundManager.SoundManager.PlayDeath();
         }
 
         void CheckForBombExplosionCollisions(GameTime gameTime)
         {
             var destroyedWalls = new List<AbstractWall>();
+            var killedEnemies = new List<AbstractEnemy>();
             foreach (AbstractExplosion explosion in explosions)
             {
                 foreach (BoundingBox box in explosion.BoundingBoxes)
                 {
+
+                    foreach (var enemy in enemies)
+                    {
+                        if(enemy.BoundingBox.Intersects(box) && !explosion.isEnemyKilled(enemy))
+                        {
+                            enemy.Live -= 100;
+                            if(enemy.Live <= 0)
+                            {
+                                killedEnemies.Add(enemy);
+                            }
+                            explosion.KilligEnemies.Add(enemy);
+                        }
+                    }
+                    
                     if (Player.BoundingSphere.Intersects(box) && !explosion.KillingPlayer)
                     {
                         if (Player.PlayerProfile.Life <= 60)
                         {
-                            Player.PlayerProfile.Life = 0;
-                            Player.Dead = true;
-                            Player.PlayerProfile.InGame = false;
+                            KillPlayer();
                         }
                         else
                         {
@@ -247,7 +383,16 @@ namespace BombermanAdventure.Models
             }
             foreach (var wall in destroyedWalls)
             {
+                if (wall.Bonus != null)
+                {
+                    Bonuses.Add(wall.Bonus);
+                }
                 walls.Remove(wall);
+            }
+            foreach (var enemy in killedEnemies)
+            {
+                enemies.Remove(enemy);
+                SoundManager.SoundManager.PlayEnemyKilled();
             }
         }
 
@@ -264,6 +409,16 @@ namespace BombermanAdventure.Models
                 modelsList.Add(wall);
             }
 
+            foreach (AbstractBonus bonus in bonuses)
+            {
+                modelsList.Add(bonus);
+            }
+
+            foreach (AbstractEnemy enemy in enemies)
+            {
+                modelsList.Add(enemy);
+            }
+
             foreach (AbstractExplosion explosion in explosions)
             {
                 modelsList.Add(explosion);
@@ -277,7 +432,13 @@ namespace BombermanAdventure.Models
             labyrinth.Update(gameTime);
             player.Update(gameTime);
             hud.Update(gameTime);
+            foreach (var enemy in enemies)
+            {
+                enemy.Update(gameTime);
+            }
+            
             CheckForHumanPlayerCollisions(gameTime);
+            CheckForEnemyCollisions(gameTime);
             CheckForBombExplosionCollisions(gameTime);
         }
 
@@ -315,6 +476,22 @@ namespace BombermanAdventure.Models
             }
         }
 
+        public void DrawBonuses(GameTime gameTime)
+        {
+            foreach (AbstractBonus bonus in bonuses)
+            {
+                bonus.Draw(gameTime);
+            }
+        }
+
+        public void DrawEnemies(GameTime gameTime) 
+        {
+            foreach (AbstractEnemy enemy in enemies)
+            {
+                enemy.Draw(gameTime);
+            }
+        }
+
         public void DrawBonusesAndGuns(GameTime gameTime)
         {
 
@@ -349,11 +526,6 @@ namespace BombermanAdventure.Models
             }
         }
 
-        public void DrawEnemies(GameTime gameTime)
-        {
-
-        }
-
         public void DrawHUD(GameTime gameTime)
         {
             hud.Draw(gameTime);
@@ -364,5 +536,6 @@ namespace BombermanAdventure.Models
         {
             _instance = null;
         }
+
     }
 }

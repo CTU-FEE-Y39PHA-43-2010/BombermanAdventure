@@ -115,6 +115,8 @@
     <Compile Include="Events\Bombs\MudBombExplosionEvent.cs" />
     <Compile Include="Events\Bombs\WaterBombExplosionEvent.cs" />
     <Compile Include="Events\Collisions\CollisionEvent.cs" />
+    <Compile Include="Events\Collisions\EnemyCollision.cs" />
+    <Compile Include="Events\Collisions\WallCollisionEvent.cs" />
     <Compile Include="Events\CommonEvent.cs" />
     <Compile Include="Events\Explosions\AbstractExplosionEvent.cs" />
     <Compile Include="Events\Explosions\FireExplosionEvent.cs" />
@@ -132,6 +134,11 @@
     <Compile Include="Models\GameModels\Bombs\ElectricBomb.cs" />
     <Compile Include="Models\GameModels\Bombs\MudBomb.cs" />
     <Compile Include="Models\GameModels\Bombs\WaterBomb.cs" />
+    <Compile Include="Models\GameModels\Bunuses\AbstractBonus.cs" />
+    <Compile Include="Models\GameModels\Bunuses\BombBonus.cs" />
+    <Compile Include="Models\GameModels\Bunuses\DoorBonus.cs" />
+    <Compile Include="Models\GameModels\Bunuses\FlameBonus.cs" />
+    <Compile Include="Models\GameModels\Bunuses\SpeedBonus.cs" />
     <Compile Include="Models\GameModels\Explosions\AbstractExplosion.cs" />
     <Compile Include="Models\GameModels\Explosions\FireExplosion.cs" />
     <Compile Include="Models\GameModels\Explosions\MudExplosion.cs" />
@@ -141,7 +148,10 @@
     <Compile Include="Models\GameModels\Labyrinths\Labyrinth.cs" />
     <Compile Include="Models\GameModels\Labyrinths\LabyrinthBlock.cs" />
     <Compile Include="Models\GameModels\Labyrinths\LabyrinthFloorUnit.cs" />
+    <Compile Include="Models\GameModels\Players\AbsractEnemy.cs" />
+    <Compile Include="Models\GameModels\Players\ClassicEnemy.cs" />
     <Compile Include="Models\GameModels\Players\Player.cs" />
+    <Compile Include="Models\GameModels\Players\SuperEnemy.cs" />
     <Compile Include="Models\GameModels\Walls\AbstractWall.cs" />
     <Compile Include="Models\GameModels\Walls\BrickWall.cs" />
     <Compile Include="Models\HUD.cs" />
@@ -164,6 +174,7 @@
     <Compile Include="ScreenManagement\MenuEntry.cs" />
     <Compile Include="ScreenManagement\Screens\MenuScreen.cs" />
     <Compile Include="ScreenManagement\PlayerIndexEventArgs.cs" />
+    <Compile Include="SoundManager\SoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -21,6 +21,7 @@ namespace BombermanAdventure.Models.GameModels.Players
         public Profile PlayerProfile { get; set; }
         public int BombsCount { get; set; }
         public bool Dead { get; set; }
+        public bool Winner { get; set; }
         private Orientation _orientation;
 
         public Player(Game game, Profile profile, int x, int y)
@@ -29,6 +30,7 @@ namespace BombermanAdventure.Models.GameModels.Players
             PlayerProfile = profile;
             base.modelPosition = new Vector3(x * 20, 10, y * 20);
             Dead = false;
+            Winner = false;
             _orientation = Orientation.Up;
         }
 
@@ -155,6 +157,11 @@ namespace BombermanAdventure.Models.GameModels.Players
                 }
                 BombsCount++;
             }
+        }
+
+        public void Remove()
+        {
+            modelPosition.Y += 100;
         }
 
         public Vector3 GetBombPosition()

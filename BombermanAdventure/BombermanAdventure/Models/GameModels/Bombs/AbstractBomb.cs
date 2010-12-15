@@ -38,7 +38,7 @@ namespace BombermanAdventure.Models.GameModels.Bombs
 
         public override void Update(GameTime gameTime)
         {
-            if (creationTime.Seconds + 5 < gameTime.TotalGameTime.Seconds)
+            if (creationTime.Seconds + 3 < gameTime.TotalGameTime.Seconds)
             {
                 RegisterEvent(gameTime);
             }
@@ -60,7 +60,6 @@ namespace BombermanAdventure.Models.GameModels.Bombs
             if (!models.Player.BoundingSphere.Intersects(BoundingSphere))
             {
                 isCollidable = true;
-
             }
         }
 

@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 #endregion
@@ -86,6 +87,14 @@ namespace BombermanAdventure.ScreenManagement.Screens
             }
             _backgroundTexture = _content.Load<Texture2D>(@"images\loading_background");
             _loadingTexture = _content.Load<Texture2D>(@"images\Prison_Girl_by_nativespidey");
+
+            //INIT SOUNDS
+            SoundManager.SoundManager.explosion = _content.Load<SoundEffect>(@"sound\bomb-02");
+            SoundManager.SoundManager.death = _content.Load<SoundEffect>(@"sound\death");
+            SoundManager.SoundManager.enemyKilled = _content.Load<SoundEffect>(@"sound\ek");
+            SoundManager.SoundManager.win = _content.Load<SoundEffect>(@"sound\win");
+            SoundManager.SoundManager.bonus = _content.Load<SoundEffect>(@"sound\menuDown");
+
         }
 
         #region Update and Draw
