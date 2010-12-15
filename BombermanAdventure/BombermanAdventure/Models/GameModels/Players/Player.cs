@@ -3,6 +3,7 @@ using BombermanAdventure.GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using BombermanAdventure.Models.GameModels.Bombs;
+using BombermanAdventure.Events;
 
 namespace BombermanAdventure.Models.GameModels.Players
 {
@@ -66,7 +67,7 @@ namespace BombermanAdventure.Models.GameModels.Players
 
         }
 
-        public override void OnEvent(Events.CommonEvent ieEvent, GameTime gameTime)
+        public override void OnEvent(CommonEvent ieEvent, GameTime gameTime)
         {
             if (ieEvent is Events.Bombs.AbstractBombExplosionEvent)
             {
@@ -168,7 +169,7 @@ namespace BombermanAdventure.Models.GameModels.Players
                         }
                         pos.Y = modelPosition.Y; 
                         //Vector3 pos = new Vector3(modelPosition.X - (modelPosition.X % 20), modelPosition.Y, modelPosition.Z - (modelPosition.Z % 20));
-                        base.models.AddBomb(new CommonBomb(game, pos, this, gameTime));
+                        base.models.AddBomb(new FireBomb(game, pos, this, gameTime));
                         break;
                     case Bombs.Water:
                         base.models.AddBomb(new WaterBomb(game, modelPosition, this, gameTime));

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using BombermanAdventure.Models.GameModels.Players;
 using BombermanAdventure.Events.Bombs;
 using BombermanAdventure.Events;
+using BombermanAdventure.Models.GameModels.Explosions;
 
 namespace BombermanAdventure.Models.GameModels.Bombs
 {
@@ -15,19 +13,21 @@ namespace BombermanAdventure.Models.GameModels.Bombs
 
         public override void Initialize()
         {
-            base.modelName = "Models/Bombs/MudBomb";
-            base.modelScale = 0.2f;
+            modelName = "Models/Bombs/MudBomb";
+            modelScale = 0.2f;
             base.Initialize();
         }
 
         protected override void RegisterEvent(GameTime gameTime)
         {
-            base.models.RegisterEvent(new MudBombExplosionEvent(this, player), gameTime);
+            var mudExplosion = new MudExplosion(game, player, modelPosition, gameTime);
+            models.AddExplosion(mudExplosion);
+            models.RegisterEvent(new MudBombExplosionEvent(this, player), gameTime);
         }
 
         public override void OnEvent(CommonEvent ieEvent, GameTime gameTime)
         {
-            //throw new NotImplementedException();
+            RegisterEvent(gameTime);
         }
     }
 }

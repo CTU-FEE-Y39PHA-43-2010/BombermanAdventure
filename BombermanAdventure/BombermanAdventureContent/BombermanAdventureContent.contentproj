@@ -186,8 +186,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Bombs\CommonBomb.x">
-      <Name>CommonBomb</Name>
+    <Compile Include="Models\Bombs\FireBomb.x">
+      <Name>FireBomb</Name>
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>

@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using BombermanAdventure.Events;
-using BombermanAdventure.Events.Collisions;
 using BombermanAdventure.Models.GameModels.Players;
 
 namespace BombermanAdventure.Models.GameModels.Explosions
@@ -33,29 +29,29 @@ namespace BombermanAdventure.Models.GameModels.Explosions
         public AbstractExplosion(Game game, Player player, Vector3 position, GameTime gameTime)
             : base(game)
         {
-            this.creationTime = gameTime.TotalGameTime;
-            this.modelPosition = new Vector3(position.X, 0, position.Z);
-            this.range = player.PlayerProfile.BombRange;
-            this.player = player;
-            this.models = ModelList.GetInstance();
+            creationTime = gameTime.TotalGameTime;
+            modelPosition = new Vector3(position.X, 0, position.Z);
+            range = player.PlayerProfile.BombRange;
+            player = player;
+            models = ModelList.GetInstance();
         }
 
         public override void Initialize()
         {
-            this.explosionItems = new List<ExplosionItem>();
-            this.boundingBoxes = new List<BoundingBox>();
+            explosionItems = new List<ExplosionItem>();
+            boundingBoxes = new List<BoundingBox>();
             LoadContent();
         }
 
         protected override void LoadContent()
         {
-            this.LoadExplosionItems();
-            this.LoadBoundingBoxes();
+            LoadExplosionItems();
+            LoadBoundingBoxes();
         }
 
         public override void Draw(GameTime gameTime)
         {
-            foreach (ExplosionItem explosionItem in explosionItems)
+            foreach (var explosionItem in explosionItems)
             {
                 explosionItem.Draw(gameTime);
             }
@@ -65,7 +61,7 @@ namespace BombermanAdventure.Models.GameModels.Explosions
         {
             if (creationTime.Milliseconds + 500 < gameTime.TotalGameTime.Milliseconds)
             {
-                this.RegisterEvent(gameTime);
+                RegisterEvent(gameTime);
             }
         }
 
@@ -170,7 +166,7 @@ namespace BombermanAdventure.Models.GameModels.Explosions
 
         protected void LoadBoundingBoxes()
         {
-            foreach (ExplosionItem item in explosionItems)
+            foreach (var item in explosionItems)
             {
                 boundingBoxes.Add(item.BoundingBox);
             }

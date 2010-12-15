@@ -7,8 +7,8 @@ using BombermanAdventure.Models.GameModels.Players;
 
 namespace BombermanAdventure.Events.Bombs
 {
-    class CommonBombExplosionEvent : AbstractBombExplosionEvent
+    class FireBombExplosionEvent : AbstractBombExplosionEvent
     {
-        public CommonBombExplosionEvent(AbstractBomb bomb, Player player) : base(bomb, player) { }
+        public FireBombExplosionEvent(AbstractBomb bomb, Player player) : base(bomb, player) { }
     }
 }
