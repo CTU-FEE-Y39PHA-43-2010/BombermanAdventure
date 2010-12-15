@@ -10,7 +10,7 @@ namespace BombermanAdventure.Models.GameModels.Explosions
         public MudExplosion(Game game, Player player, Vector3 position, GameTime gameTime)
             : base(game, player, position, gameTime)
         {
-            color = new Vector3(128, 128, 0);
+            color = new Vector3(128, 0, 128);
             Initialize();
         }
 

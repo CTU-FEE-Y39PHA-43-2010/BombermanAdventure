@@ -18,7 +18,7 @@ namespace BombermanAdventure.Generators
         public ModelList GenerateLevel(Game game) 
         {
             models.Labyrinth = new Labyrinth(game, 8, 8);
-            var wall = new BrickWall(game, 0, 0);
+            AbstractWall wall = new BrickWall(game, 0, 0);
             wall.Bonus = new BombBonus(game, wall);
             models.AddWall(wall);
 
@@ -38,12 +38,24 @@ namespace BombermanAdventure.Generators
             wall.Bonus = new SpeedBonus(game, wall);
             models.AddWall(wall);
 
-            var wall2 = new ElectricWall(game, 3, 8);
-            wall.Bonus = new BombBonus(game, wall2);
-            models.AddWall(wall2);
+            wall = new ElectricWall(game, 3, 8);
+            wall.Bonus = new BombBonus(game, wall);
+            models.AddWall(wall);
 
             wall = new BrickWall(game, 6, 8);
             wall.Bonus = new DoorBonus(game, wall);
+            models.AddWall(wall);
+
+            wall = new FireWall(game, 7, 8);
+            models.AddWall(wall);
+
+            wall = new WaterWall(game, 6, 7);
+            models.AddWall(wall);
+
+            wall = new BrickWall(game, 4, 8);
+            models.AddWall(wall);
+
+            wall = new FireWall(game, 4, 6);
             models.AddWall(wall);
 
             models.AddEnemy(new ClassicEnemy(game, -7, 8));
