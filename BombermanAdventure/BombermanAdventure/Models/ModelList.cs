@@ -254,21 +254,24 @@ namespace BombermanAdventure.Models
                 if (bonus is BombBonus)
                 {
                     player.PlayerProfile.PossibleBombsCount++;
+                    SoundManager.SoundManager.PlayBonus();
                 }
                 if (bonus is SpeedBonus)
                 {
                     player.PlayerProfile.Speed++;
+                    SoundManager.SoundManager.PlayBonus();
                 }
                 if (bonus is FlameBonus)
                 {
                     player.PlayerProfile.BombRange++;
+                    SoundManager.SoundManager.PlayBonus();
                 }
                 if (bonus is DoorBonus)
                 {
                     player.Winner = true;
                     player.PlayerProfile.InGame = false;
+                    player.Remove();
                     SoundManager.SoundManager.PlayWin();
-                    return;
                 }
                 bonuses.Remove(bonus);
             }
