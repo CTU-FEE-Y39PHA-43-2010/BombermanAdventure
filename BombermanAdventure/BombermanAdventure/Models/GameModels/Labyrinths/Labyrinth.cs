@@ -60,7 +60,6 @@ namespace BombermanAdventure.Models.GameModels.Labyrinths
         {
             this.indestructibleBlocksCountOnX = x;
             this.indestructibleBlocksCountOnY = y;
-
             this.Initialize();
         }
 

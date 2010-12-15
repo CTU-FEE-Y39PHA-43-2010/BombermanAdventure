@@ -100,98 +100,97 @@ namespace BombermanAdventure.Models.GameModels.Players
             KeyboardState ks = Keyboard.GetState();
             Walking(ks);
 
-            if (ks.IsKeyDown(Keys.Space))
+            if (ks.IsKeyDown(Keys.Z) || ks.IsKeyDown(Keys.Y))
             {
-                if (!_oldState.IsKeyDown(Keys.Space))
+                if (!_oldState.IsKeyDown(Keys.Z) && !_oldState.IsKeyDown(Keys.Y))
                 {
-                    PutBomb(gameTime);
+                    PutBomb(gameTime, Bombs.Common);
                 }
             }
-            if (ks.IsKeyDown(Keys.LeftControl))
+            if (ks.IsKeyDown(Keys.X))
             {
-                if (!_oldState.IsKeyDown(Keys.LeftControl))
+                if (!_oldState.IsKeyDown(Keys.X))
                 {
-                    ChageBombType(gameTime);
+                    PutBomb(gameTime, Bombs.Electric);
                 }
             }
+            if (ks.IsKeyDown(Keys.C))
+            {
+                if (!_oldState.IsKeyDown(Keys.C))
+                {
+                    PutBomb(gameTime, Bombs.Mud);
+                }
+            }
+            if (ks.IsKeyDown(Keys.V))
+            {
+                if (!_oldState.IsKeyDown(Keys.V))
+                {
+                    PutBomb(gameTime, Bombs.Water);
+                }
+            }
+
             _oldState = ks;
         }
 
-        private void ChageBombType(GameTime gameTime)
-        {
-            switch (_selectedBombType)
-            {
-                case Bombs.Common:
-                    _selectedBombType = Bombs.Water;
-                    break;
-                case Bombs.Water:
-                    _selectedBombType = Bombs.Electric;
-                    break;
-                case Bombs.Electric:
-                    _selectedBombType = Bombs.Mud;
-                    break;
-                case Bombs.Mud:
-                    _selectedBombType = Bombs.Common;
-                    break;
-            }
-        }
-
-        public void PutBomb(GameTime gameTime)
+        private void PutBomb(GameTime gameTime, Bombs bType)
         {
             if (BombsCount < PlayerProfile.PossibleBombsCount)
             {
-                switch (_selectedBombType)
+                var pos = GetBombPosition();
+                switch(bType)
                 {
                     case Bombs.Common:
-                        var pos = new Vector3();
-                        if ((Math.Abs(modelPosition.X % 20)) >= 10)
-                        {
-                            if (modelPosition.X % 20 < 0)
-                            {
-                                pos.X = modelPosition.X - 20 - modelPosition.X % 20;
-                            }
-                            else
-                            {
-                                pos.X = modelPosition.X + 20 - modelPosition.X % 20;
-                            }
-
-                        }
-                        else
-                        {
-                            pos.X = modelPosition.X - modelPosition.X % 20;
-                        }
-                        if ((Math.Abs(modelPosition.Z % 20)) >= 10)
-                        {
-                            if (modelPosition.Z % 20 < 0)
-                            {
-                                pos.Z = modelPosition.Z - 20 - modelPosition.Z % 20;
-                            }
-                            else
-                            {
-                                pos.Z = modelPosition.Z + 20 - modelPosition.Z % 20;
-                            }
-
-                        }
-                        else
-                        {
-                            pos.Z = modelPosition.Z - modelPosition.Z % 20;
-                        }
-                        pos.Y = modelPosition.Y;
-                        //Vector3 pos = new Vector3(modelPosition.X - (modelPosition.X % 20), modelPosition.Y, modelPosition.Z - (modelPosition.Z % 20));
-                        base.models.AddBomb(new CommonBomb(game, pos, this, gameTime));
+                        models.AddBomb(new CommonBomb(game, pos, this, gameTime));
                         break;
                     case Bombs.Water:
-                        base.models.AddBomb(new WaterBomb(game, modelPosition, this, gameTime));
+                        models.AddBomb(new WaterBomb(game, pos, this, gameTime));
                         break;
                     case Bombs.Electric:
-                        base.models.AddBomb(new ElectricBomb(game, modelPosition, this, gameTime));
+                        models.AddBomb(new ElectricBomb(game, pos, this, gameTime));
                         break;
                     case Bombs.Mud:
-                        base.models.AddBomb(new MudBomb(game, modelPosition, this, gameTime));
+                        models.AddBomb(new MudBomb(game, pos, this, gameTime));
                         break;
                 }
                 BombsCount++;
             }
+        }
+
+        public Vector3 GetBombPosition()
+        {
+            var pos = new Vector3();
+            if ((Math.Abs(modelPosition.X%20)) >= 10)
+            {
+                if (modelPosition.X%20 < 0)
+                {
+                    pos.X = modelPosition.X - 20 - modelPosition.X%20;
+                }
+                else
+                {
+                    pos.X = modelPosition.X + 20 - modelPosition.X%20;
+                }
+            }
+            else
+            {
+                pos.X = modelPosition.X - modelPosition.X%20;
+            }
+            if ((Math.Abs(modelPosition.Z%20)) >= 10)
+            {
+                if (modelPosition.Z%20 < 0)
+                {
+                    pos.Z = modelPosition.Z - 20 - modelPosition.Z%20;
+                }
+                else
+                {
+                    pos.Z = modelPosition.Z + 20 - modelPosition.Z%20;
+                }
+            }
+            else
+            {
+                pos.Z = modelPosition.Z - modelPosition.Z%20;
+            }
+            pos.Y = modelPosition.Y;
+            return pos;
         }
 
         public void Fire()
