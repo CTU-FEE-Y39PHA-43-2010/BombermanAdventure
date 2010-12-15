@@ -19,9 +19,9 @@ namespace BombermanAdventure.Generators
             models.Labyrinth = new Labyrinth(game, 8, 8);
             
             models.AddWall(new BrickWall(game, 0, 0));
-            models.AddWall(new BrickWall(game, 1, 2));
-            models.AddWall(new BrickWall(game, 2, 5));
-            models.AddWall(new BrickWall(game, 3, 8));
+            models.AddWall(new WaterWall(game, 1, 2));
+            models.AddWall(new ElectricWall(game, 2, 5));
+            models.AddWall(new FireWall(game, 3, 8));
             models.AddWall(new BrickWall(game, 4, 0));
             models.AddWall(new BrickWall(game, -5, -2));
             models.AddWall(new BrickWall(game, 2, 7));

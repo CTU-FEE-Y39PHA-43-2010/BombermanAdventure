@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using BombermanAdventure.Events;
 using BombermanAdventure.Models.GameModels.Players;
+using BombermanAdventure.Models.GameModels.Walls;
+using System.Diagnostics;
 
 namespace BombermanAdventure.Models.GameModels.Explosions
 {
@@ -140,7 +142,10 @@ namespace BombermanAdventure.Models.GameModels.Explosions
             {
                 explosionItems.Add(new ExplosionItem(game, color, pos));
             }
+
         }
+
+        public abstract Player.Bombs BombType();
 
         private bool IsCollidesWithDestroyableWall(Vector3 side)
         {
@@ -148,6 +153,9 @@ namespace BombermanAdventure.Models.GameModels.Explosions
             {
                 if (wall.ModelPosition.X == side.X && wall.ModelPosition.Y == side.Y && wall.ModelPosition.Z == side.Z)
                 {
+                    if (wall is FireWall)
+                    {
+                    }
                     return true;
                 }
             }
@@ -156,6 +164,56 @@ namespace BombermanAdventure.Models.GameModels.Explosions
 
         private bool IsCollidesWithLabyrynthBlock(Vector3 side)
         {
+            foreach (var wall in models.Walls)
+            {
+                if (wall.ModelPosition.X == side.X && wall.ModelPosition.Y == side.Y && wall.ModelPosition.Z == side.Z)
+                {
+                    if (wall is FireWall)
+                    {
+                        if (BombType() == Player.Bombs.Water)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }
+                    if (wall is ElectricWall)
+                    {
+                        if (BombType() == Player.Bombs.Mud)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }
+                    if (wall is WaterWall)
+                    {
+                        if (BombType() == Player.Bombs.Electric)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }
+                    if (wall is BrickWall)
+                    {
+                        if (BombType() == Player.Bombs.Common)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    } 
+                }
+            }
             foreach (var block in models.Labyrinth.Blocks)
             {
                 if (block.ModelPosition.X == side.X && block.ModelPosition.Y == side.Y && block.ModelPosition.Z == side.Z)

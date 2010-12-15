@@ -10,7 +10,7 @@ namespace BombermanAdventure.Models.GameModels.Players
 {
     class Player : AbstractGameModel
     {
-        enum Bombs { Common, Water, Mud, Electric }
+        public enum Bombs { Common, Water, Mud, Electric }
         enum Orientation { Up, Down, Left, Right }
 
         private Bombs _selectedBombType;
