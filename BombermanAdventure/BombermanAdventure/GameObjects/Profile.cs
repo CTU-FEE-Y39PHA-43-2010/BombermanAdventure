@@ -5,104 +5,47 @@ namespace BombermanAdventure.GameObjects
     [Serializable]
     public class Profile
     {
-        private readonly string _name;
-        private int _score;
-        private int _life;
-        private int _level;
-        private int _possibleBombsCount;
+        public bool InGame { get; set; }
 
-        public int PossibleBombsCount
-        {
-            get { return _possibleBombsCount; }
-            set { _possibleBombsCount = value; }
-        }
+        public int PossibleBombsCount { get; set; }
 
-        public string Name
-        {
-            get { return _name; }
-        }
+        public string Name { get; private set; }
 
-        public int Score
-        {
-            get { return _score; }
-            set { _score = value; }
-        }
+        public int Score { get; set; }
 
-        public int Life
-        {
-            get { return _life; }
-            set { _life = value; }
-        }
+        public int Life { get; set; }
 
-        public int Level
-        {
-            get { return _level; }
-            set { _level = value; }
-        }
+        public int Level { get; set; }
 
-        private float _speed;
-        public float Speed
-        {
-            get { return _speed; }
-            set { _speed = value; }
-        }
+        public float Speed { get; set; }
 
-        private int _armor;
-        public int Armor
-        {
-            get { return _armor; }
-            set { _armor = value; }
-        }
+        public int Armor { get; set; }
 
-        private int _bombRange;
-        public int BombRange
-        {
-            get { return _bombRange; }
-            set { _bombRange = value; }
-        }
+        public int BombRange { get; set; }
 
-        private bool _hasCommonBomb;
-        public bool HasCommonBomb
-        {
-            get { return _hasCommonBomb; }
-            set { _hasCommonBomb = value; }
-        }
+        public bool HasCommonBomb { get; set; }
 
-        private bool _hasElectricBomb;
-        public bool HasElectricBomb
-        {
-            get { return _hasElectricBomb; }
-            set { _hasElectricBomb = value; }
-        }
+        public bool HasElectricBomb { get; set; }
 
-        private bool _hasMudBomb;
-        public bool HasMudBomb
-        {
-            get { return _hasMudBomb; }
-            set { _hasMudBomb = value; }
-        }
+        public bool HasMudBomb { get; set; }
 
-        private bool _hasWaterBomb;
-        public bool HasWaterBomb
-        {
-            get { return _hasWaterBomb; }
-            set { _hasWaterBomb = value; }
-        }
+        public bool HasWaterBomb { get; set; }
 
         public Profile(string name)
         {
-            _name = name;
-            _score = 0;
-            _life = 100;
-            _level = 1;
-            _possibleBombsCount = 1;
-            _armor = 0;
-            _speed = 1;
-            _bombRange = 1;
-            _hasCommonBomb = true;
-            _hasElectricBomb = true;
-            _hasMudBomb = true;
-            _hasWaterBomb = true;
+            Name = name;
+            Score = 0;
+            Life = 100;
+            Level = 1;
+            PossibleBombsCount = 1;
+            Armor = 0;
+            Speed = 1;
+            BombRange = 1;
+            HasCommonBomb = true;
+            HasElectricBomb = true;
+            HasMudBomb = true;
+            HasWaterBomb = true;
+            InGame = false;
         }
 
     }

@@ -31,6 +31,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         readonly GameScreen[] _screensToLoad;
         ContentManager _content;
         Texture2D _backgroundTexture;
+        Texture2D _loadingTexture;
         private float _scale;
 
         #endregion
@@ -84,6 +85,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
             }
             _backgroundTexture = _content.Load<Texture2D>(@"images\loading_background");
+            _loadingTexture = _content.Load<Texture2D>(@"images\Prison_Girl_by_nativespidey");
         }
 
         #region Update and Draw
@@ -149,16 +151,20 @@ namespace BombermanAdventure.ScreenManagement.Screens
             var spriteBatch = ScreenManager.SpriteBatch;
             var viewport = ScreenManager.GraphicsDevice.Viewport;
             var fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
+            var girlRectangle = new Rectangle(viewport.Width / 2 - 150, viewport.Height / 2 - 200, 300, 392);
 
             spriteBatch.Begin();
 
             //draw background
             spriteBatch.Draw(_backgroundTexture, fullscreen,
                              new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));
+            //draw girl
+            spriteBatch.Draw(_loadingTexture, girlRectangle,
+                             new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));
 
             const string message = "Loading...";
 
-            var viewportSize = new Vector2(viewport.Width, viewport.Height);
+            var viewportSize = new Vector2(viewport.Width, viewport.Height + 500);
             var textSize = font.MeasureString(message);
             var textPosition = (viewportSize - textSize) / 2;
             var origin = new Vector2(0, font.LineSpacing / 2.0f);

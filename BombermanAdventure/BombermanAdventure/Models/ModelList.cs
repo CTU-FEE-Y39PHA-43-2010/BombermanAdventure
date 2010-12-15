@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using BombermanAdventure.Cameras;
 using BombermanAdventure.Models.GameModels;
@@ -19,7 +20,7 @@ namespace BombermanAdventure.Models
         /// <summary>
         /// instance k modelListu pro vytvoreni jedinacka
         /// </summary>
-        static ModelList instance = null;
+        static ModelList _instance = null;
 
         /// <summary>
         /// Lidský hráč
@@ -122,9 +123,9 @@ namespace BombermanAdventure.Models
 
         public static ModelList GetInstance()
         {
-            if (instance == null)
-                instance = new ModelList();
-            return instance;
+            if (_instance == null)
+                _instance = new ModelList();
+            return _instance;
         }
 
         public void AddBomb(AbstractBomb bomb)
@@ -202,6 +203,22 @@ namespace BombermanAdventure.Models
             {
                 foreach (BoundingBox box in explosion.BoundingBoxes)
                 {
+                    if (Player.BoundingSphere.Intersects(box) && !explosion.KillingPlayer)
+                    {
+                        if (Player.PlayerProfile.Life <= 60)
+                        {
+                            Player.PlayerProfile.Life = 0;
+                            Player.Dead = true;
+                            Player.PlayerProfile.InGame = false;
+                        }
+                        else
+                        {
+                            Player.PlayerProfile.Life -= 60;
+                        }
+                        explosion.KillingPlayer = true;
+
+                    }
+
                     foreach (AbstractBomb bomb in bombs)
                     {
                         if (bomb.BoundingSphere.Intersects(box))
@@ -326,7 +343,10 @@ namespace BombermanAdventure.Models
 
         public void DrawPlayer(GameTime gameTime)
         {
-            player.Draw(gameTime);
+            if (!player.Dead)
+            {
+                player.Draw(gameTime);
+            }
         }
 
         public void DrawEnemies(GameTime gameTime)
@@ -339,5 +359,10 @@ namespace BombermanAdventure.Models
             hud.Draw(gameTime);
         }
 
+
+        public static void Clean()
+        {
+            _instance = null;
+        }
     }
 }

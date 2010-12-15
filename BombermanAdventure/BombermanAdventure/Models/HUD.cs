@@ -11,7 +11,9 @@ namespace BombermanAdventure.Models
         SpriteFont spriteFont;
         Texture2D texture;
 
-        public HUD(Game game) :base(game) {
+        public HUD(Game game)
+            : base(game)
+        {
             Initialize();
         }
 
@@ -34,7 +36,10 @@ namespace BombermanAdventure.Models
         {
             spriteBatch.Begin();
             // vykreslime texturu
-            spriteBatch.Draw(texture, new Rectangle(0,0,100,100), Color.Green);
+            //
+            spriteBatch.Draw(texture, new Rectangle(0, 0, 100, 100), Color.Green);
+            spriteBatch.DrawString(spriteFont, models.Player.PlayerProfile.Life + " -  ", new Vector2(5, 30), Color.White);
+
             // vzkreslime text
             spriteBatch.DrawString(spriteFont, String.Format("{0}%[{1},{2}]~[{3},{4}]", models.Player.PlayerProfile.Life, models.Player.ModelPosition.X, models.Player.ModelPosition.Z, models.Player.ModelPosition.X % 20, models.Player.ModelPosition.Z % 20), new Vector2(20, 50), Color.White);
             spriteBatch.End();

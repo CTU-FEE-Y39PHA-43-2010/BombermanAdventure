@@ -29,6 +29,7 @@ namespace BombermanAdventure.Models.GameModels.Explosions
         protected int range;
         protected TimeSpan creationTime;
         protected Player player;
+        public bool KillingPlayer { get; set; }
 
         public AbstractExplosion(Game game, Player player, Vector3 position, GameTime gameTime)
             : base(game)
@@ -38,6 +39,7 @@ namespace BombermanAdventure.Models.GameModels.Explosions
             this.range = player.PlayerProfile.BombRange;
             this.player = player;
             this.models = ModelList.GetInstance();
+            KillingPlayer = false;
         }
 
         public override void Initialize()

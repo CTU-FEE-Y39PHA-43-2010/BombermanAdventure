@@ -1,5 +1,5 @@
 ﻿using BombermanAdventure.GameStorage;
-using BombermanAdventure.GameObjects;
+using BombermanAdventure.Models;
 
 namespace BombermanAdventure.ScreenManagement.Screens
 {
@@ -15,7 +15,13 @@ namespace BombermanAdventure.ScreenManagement.Screens
             : base(x)
         {
             // Create our menu entries.
-            var playGameMenuEntry = new MenuEntry("play game");
+            if (BombermanAdventureGame.ActivePlayer.InGame)
+            {
+                var continueGameMenuEntry = new MenuEntry("continue game");
+                continueGameMenuEntry.Selected += ContinueGameMenuEntrySelected;
+                MenuEntries.Add(continueGameMenuEntry);
+            }
+            var playGameMenuEntry = new MenuEntry("play new game");
             var infoMenuEntry = new MenuEntry("player info");
             var helpMenuEntry = new MenuEntry("command help");
             var deleteProfileMenuEntry = new MenuEntry("delete profile");
@@ -43,9 +49,22 @@ namespace BombermanAdventure.ScreenManagement.Screens
 
         void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
+            ModelList.Clean();
+            if (BombermanAdventureGame.ActivePlayer.Life == 0)
+            {
+                BombermanAdventureGame.ActivePlayer.Life = 100;
+            }
+            BombermanAdventureGame.ActivePlayer.InGame = true;
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
                                new PlayingScreen());
         }
+
+        void ContinueGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
+                               new PlayingScreen());
+        }
+
 
         /// <summary>
         /// Event handler for when the Options menu entry is selected.
@@ -90,6 +109,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         void ConfirmExitAccepted(object sender, PlayerIndexEventArgs e)
         {
+            BombermanAdventureGame.ActivePlayer.InGame = false;
+            PlayerListStorage.Save();
             ScreenManager.Game.Exit();
         }
 
