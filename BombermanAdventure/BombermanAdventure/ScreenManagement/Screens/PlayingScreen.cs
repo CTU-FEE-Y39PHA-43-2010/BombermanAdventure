@@ -107,7 +107,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
 
             camera.Update();
             gameSession.Update(gameTime);
-           
+
         }
 
         void ConfirmExitGameAccepted(object sender, PlayerIndexEventArgs e)
@@ -162,7 +162,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
-            
+
             ScreenManager.GraphicsDevice.Clear(ClearOptions.Target,
                                                Color.CornflowerBlue, 0, 0);
 
@@ -171,7 +171,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
 
 
             spriteBatch.End();*/
-            
+
             gameSession.Draw(gameTime);
         }
 

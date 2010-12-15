@@ -9,8 +9,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
 {
     class ProfileScreen : MenuScreen
     {
-        
-         #region Initialization
+
+        #region Initialization
 
         private bool _createProfile;
         private Color _profileTextColor;
@@ -23,7 +23,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
         /// <summary>
         /// Profile scree
         /// </summary>
-        public ProfileScreen() : base("load profile", true)
+        public ProfileScreen()
+            : base("load profile", true)
         {
             _pl = PlayerListStorage.PlayerList;
             FillMenuItems();
@@ -55,9 +56,10 @@ namespace BombermanAdventure.ScreenManagement.Screens
         {
             _createProfile = true;
         }
-        
-        void FillMenuItems() {
-            
+
+        void FillMenuItems()
+        {
+
             /*foreach (var profileEntry in _pl.profiles.Select(player => new MenuEntry(player.Name)))
             {
                 MenuEntries.Add(profileEntry);
@@ -78,11 +80,12 @@ namespace BombermanAdventure.ScreenManagement.Screens
             MenuEntries.Add(newProfileEntry);
         }
 
-        public override void HandleInput(InputState input) { 
-           
+        public override void HandleInput(InputState input)
+        {
+
             PlayerIndex playerIndex;
             if (_createProfile)
-            {    
+            {
                 if (input.IsNewKeyPress(Keys.Escape, ControllingPlayer, out playerIndex))
                 {
                     _createProfile = false;
@@ -90,7 +93,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
                 }
                 if (input.IsNewKeyPress(Keys.Enter, ControllingPlayer, out playerIndex))
                 {
-                    if(_saveable)
+                    if (_saveable)
                     {
                         if (_pl.Profiles.Any(player => player.Name == _newProfileName))
                         {
@@ -110,11 +113,6 @@ namespace BombermanAdventure.ScreenManagement.Screens
                     return;
                 }
 
-                if (_input.Length > 9) 
-                {
-                    return;
-                }
-
                 var i = (int)playerIndex;
                 var selected = false;
                 var pressed = "";
@@ -128,12 +126,16 @@ namespace BombermanAdventure.ScreenManagement.Screens
                             _input = _input.Substring(0, _input.Length - 1);
                             return;
                         }
+                        if (_input.Length > 9)
+                        {
+                            return;
+                        }
                         if (keyNum >= (int)Keys.A && keyNum <= (int)Keys.Z)
                         {
                             selected = true;
                             pressed = key.ToString();
                         }
-                        else if (keyNum >= (int)Keys.D0 && keyNum <= (int)Keys.D9) 
+                        else if (keyNum >= (int)Keys.D0 && keyNum <= (int)Keys.D9)
                         {
                             selected = true;
                             pressed = key.ToString().Substring(1, 1);
@@ -143,7 +145,8 @@ namespace BombermanAdventure.ScreenManagement.Screens
                     {
                         _shift = true;
                     }
-                    else {
+                    else
+                    {
                         _shift = false;
                     }
                 }
@@ -154,17 +157,17 @@ namespace BombermanAdventure.ScreenManagement.Screens
                     {
                         _input += pressed.ToLower();
                     }
-                    else 
+                    else
                     {
                         _input += pressed.ToUpper();
                     }
                 }
 
-                if (_input.Length > 4) 
+                if (_input.Length > 4)
                 {
                     _saveable = true;
                 }
-               
+
             }
             else if (input.IsMenuCancel(ControllingPlayer, out playerIndex))
             {
@@ -179,9 +182,10 @@ namespace BombermanAdventure.ScreenManagement.Screens
 
         public override void Update(GameTime gameTime, bool otherScreenHasFocus,
                                                       bool coveredByOtherScreen)
-        {            
+        {
 
-            if (_createProfile) {
+            if (_createProfile)
+            {
                 if (string.IsNullOrEmpty(_input))
                 {
                     _newProfileName = "new profile";
@@ -206,8 +210,9 @@ namespace BombermanAdventure.ScreenManagement.Screens
             var viewport = ScreenManager.GraphicsDevice.Viewport;
 
             spriteBatch.Begin();
-            
-            if (_createProfile) {
+
+            if (_createProfile)
+            {
 
                 //vypsat kolonku
                 spriteBatch.Draw(Blank, new Rectangle(LeftM + 20, viewport.Height - BottomM - 80, 200, 30), Color.White);
@@ -226,7 +231,7 @@ namespace BombermanAdventure.ScreenManagement.Screens
             spriteBatch.End();
 
         }
-        
+
 
         #endregion
 

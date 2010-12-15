@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using BombermanAdventure.GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -10,6 +11,7 @@ namespace BombermanAdventure.Models.GameModels.Players
     class Player : AbstractGameModel
     {
         enum Bombs { Common, Water, Mud, Electric }
+        enum Orientation { Up, Down, Left, Right }
 
         private Bombs _selectedBombType;
         private KeyboardState _oldState;
@@ -18,12 +20,16 @@ namespace BombermanAdventure.Models.GameModels.Players
         private Vector3 _prevModelPosition;
         public Profile PlayerProfile { get; set; }
         public int BombsCount { get; set; }
+        public bool Dead { get; set; }
+        private Orientation _orientation;
 
         public Player(Game game, Profile profile, int x, int y)
             : base(game)
         {
             PlayerProfile = profile;
             base.modelPosition = new Vector3(x * 20, 10, y * 20);
+            Dead = false;
+            _orientation = Orientation.Up;
         }
 
         public override void Initialize()
@@ -31,7 +37,7 @@ namespace BombermanAdventure.Models.GameModels.Players
             base.modelName = "Models/Player";
             base.modelScale = 1f;
 
-            modelRotation = new Vector3();
+            modelRotation = new Vector3(0f, 230f, 0f);
             _selectedBombType = Bombs.Common;
             _prevModelPosition = modelPosition;
 
@@ -87,8 +93,12 @@ namespace BombermanAdventure.Models.GameModels.Players
 
         private void KeyBoardHandler(GameTime gameTime)
         {
-            KeyboardState ks = Keyboard.GetState();
+            if (Dead)
+            {
+                return;
+            }
 
+            KeyboardState ks = Keyboard.GetState();
             Walking(ks);
 
             if (ks.IsKeyDown(Keys.Space))
@@ -145,7 +155,7 @@ namespace BombermanAdventure.Models.GameModels.Players
                             {
                                 pos.X = modelPosition.X + 20 - modelPosition.X % 20;
                             }
-                            
+
                         }
                         else
                         {
@@ -161,13 +171,13 @@ namespace BombermanAdventure.Models.GameModels.Players
                             {
                                 pos.Z = modelPosition.Z + 20 - modelPosition.Z % 20;
                             }
-                            
+
                         }
                         else
                         {
                             pos.Z = modelPosition.Z - modelPosition.Z % 20;
                         }
-                        pos.Y = modelPosition.Y; 
+                        pos.Y = modelPosition.Y;
                         //Vector3 pos = new Vector3(modelPosition.X - (modelPosition.X % 20), modelPosition.Y, modelPosition.Z - (modelPosition.Z % 20));
                         base.models.AddBomb(new FireBomb(game, pos, this, gameTime));
                         break;
@@ -192,79 +202,189 @@ namespace BombermanAdventure.Models.GameModels.Players
 
         #region Ovladani Chuze
 
+        private void SetOrientation(Orientation orig, Orientation needed)
+        {
+
+            if (orig == needed)
+            {
+                return;
+            }
+
+            switch (orig)
+            {
+                case Orientation.Up:
+                    switch (needed)
+                    {
+                        case Orientation.Down:
+                            modelRotation.Y -= 180;
+                            break;
+                        case Orientation.Left:
+                            modelRotation.Y -= 90;
+                            break;
+                        case Orientation.Right:
+                            modelRotation.Y += 90;
+                            break;
+                    }
+                    break;
+                case Orientation.Down:
+                    switch (needed)
+                    {
+                        case Orientation.Up:
+                            modelRotation.Y += 180;
+                            break;
+                        case Orientation.Left:
+                            modelRotation.Y += 90;
+                            break;
+                        case Orientation.Right:
+                            modelRotation.Y -= 90;
+                            break;
+                    }
+                    break;
+                case Orientation.Left:
+                    switch (needed)
+                    {
+                        case Orientation.Down:
+                            modelRotation.Y -= 90;
+                            break;
+                        case Orientation.Up:
+                            modelRotation.Y += 90;
+                            break;
+                        case Orientation.Right:
+                            modelRotation.Y += 180;
+                            break;
+                    }
+                    break;
+                case Orientation.Right:
+                    switch (needed)
+                    {
+                        case Orientation.Down:
+                            modelRotation.Y += 90;
+                            break;
+                        case Orientation.Up:
+                            modelRotation.Y -= 90;
+                            break;
+                        case Orientation.Left:
+                            modelRotation.Y -= 180;
+                            break;
+                    }
+                    break;
+            }
+
+        }
+
         public void GoUp()
         {
+            Orientation _neededOrientation = Orientation.Up;
             switch (models.Camera.position)
             {
                 case Cameras.Camera.Position.FRONT:
                     modelPosition.X -= PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Up;
                     break;
                 case Cameras.Camera.Position.LEFT:
                     modelPosition.Z += PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Right;
                     break;
                 case Cameras.Camera.Position.BACK:
                     modelPosition.X += PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Down;
                     break;
                 case Cameras.Camera.Position.RIGHT:
                     modelPosition.Z -= PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Left;
                     break;
+            }
+            if (_orientation != _neededOrientation)
+            {
+                SetOrientation(_orientation, _neededOrientation);
+                _orientation = _neededOrientation;
             }
         }
 
         public void GoDown()
         {
+            Orientation _neededOrientation = Orientation.Down;
             switch (models.Camera.position)
             {
                 case Cameras.Camera.Position.FRONT:
                     modelPosition.X += PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Down;
                     break;
                 case Cameras.Camera.Position.LEFT:
                     modelPosition.Z -= PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Left;
                     break;
                 case Cameras.Camera.Position.BACK:
                     modelPosition.X -= PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Up;
                     break;
                 case Cameras.Camera.Position.RIGHT:
                     modelPosition.Z += PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Right;
                     break;
+            }
+            if (_orientation != _neededOrientation)
+            {
+                SetOrientation(_orientation, _neededOrientation);
+                _orientation = _neededOrientation;
             }
         }
 
         public void GoLeft()
         {
+            Orientation _neededOrientation = Orientation.Down;
             switch (models.Camera.position)
             {
                 case Cameras.Camera.Position.FRONT:
                     modelPosition.Z += PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Right;
                     break;
                 case Cameras.Camera.Position.LEFT:
                     modelPosition.X += PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Down;
                     break;
                 case Cameras.Camera.Position.BACK:
                     modelPosition.Z -= PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Left;
                     break;
                 case Cameras.Camera.Position.RIGHT:
                     modelPosition.X -= PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Up;
                     break;
+            }
+            if (_orientation != _neededOrientation)
+            {
+                SetOrientation(_orientation, _neededOrientation);
+                _orientation = _neededOrientation;
             }
         }
 
         public void GoRight()
         {
+            Orientation _neededOrientation = Orientation.Down;
             switch (models.Camera.position)
             {
                 case Cameras.Camera.Position.FRONT:
                     modelPosition.Z -= PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Left;
                     break;
                 case Cameras.Camera.Position.LEFT:
                     modelPosition.X -= PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Up;
                     break;
                 case Cameras.Camera.Position.BACK:
                     modelPosition.Z += PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Right;
                     break;
                 case Cameras.Camera.Position.RIGHT:
                     modelPosition.X += PlayerProfile.Speed;
+                    _neededOrientation = Orientation.Down;
                     break;
+            }
+            if (_orientation != _neededOrientation)
+            {
+                SetOrientation(_orientation, _neededOrientation);
+                _orientation = _neededOrientation;
             }
         }
 
