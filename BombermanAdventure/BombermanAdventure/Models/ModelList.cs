@@ -25,15 +25,15 @@ namespace BombermanAdventure.Models
         /// Lidský hráč
         /// </summary>
         Player player;
-        public Player Player 
+        public Player Player
         {
             get { return player; }
-            set 
+            set
             {
                 if (player == null)
                 {
                     player = value;
-                } 
+                }
             }
         }
 
@@ -44,7 +44,7 @@ namespace BombermanAdventure.Models
         public Camera Camera
         {
             get { return camera; }
-            set 
+            set
             {
                 if (camera == null)
                 {
@@ -57,12 +57,12 @@ namespace BombermanAdventure.Models
         /// Head-Up Display
         /// </summary>
         HUD hud;
-        public HUD Hud 
+        public HUD Hud
         {
             get { return hud; }
-            set 
+            set
             {
-                if (hud == null) 
+                if (hud == null)
                 {
                     hud = value;
                 }
@@ -73,12 +73,12 @@ namespace BombermanAdventure.Models
         /// model labyrintu
         /// </summary>
         Labyrinth labyrinth;
-        public Labyrinth Labyrinth 
+        public Labyrinth Labyrinth
         {
             get { return labyrinth; }
-            set 
+            set
             {
-                if (labyrinth == null) 
+                if (labyrinth == null)
                 {
                     labyrinth = value;
                 }
@@ -89,7 +89,7 @@ namespace BombermanAdventure.Models
         /// modely bomb
         /// </summary>
         List<AbstractBomb> bombs;
-        public List<AbstractBomb> Bombs 
+        public List<AbstractBomb> Bombs
         {
             get { return bombs; }
         }
@@ -98,7 +98,7 @@ namespace BombermanAdventure.Models
         /// modely zdi
         /// </summary>
         List<AbstractWall> walls;
-        public List<AbstractWall> Walls 
+        public List<AbstractWall> Walls
         {
             get { return walls; }
         }
@@ -107,26 +107,26 @@ namespace BombermanAdventure.Models
         /// modely explozi
         /// </summary>
         List<AbstractExplosion> explosions;
-        public List<AbstractExplosion> Explosions 
+        public List<AbstractExplosion> Explosions
         {
             get { return explosions; }
         }
 
 
-        private ModelList() 
+        private ModelList()
         {
             bombs = new List<AbstractBomb>();
             walls = new List<AbstractWall>();
             explosions = new List<AbstractExplosion>();
         }
 
-        public static ModelList GetInstance() 
+        public static ModelList GetInstance()
         {
             if (instance == null)
                 instance = new ModelList();
             return instance;
         }
-        
+
         public void AddBomb(AbstractBomb bomb)
         {
             bombs.Add(bomb);
@@ -137,12 +137,12 @@ namespace BombermanAdventure.Models
             walls.Add(wall);
         }
 
-        public void AddExplosion(AbstractExplosion explosion) 
+        public void AddExplosion(AbstractExplosion explosion)
         {
             explosions.Add(explosion);
         }
 
-        public void RegisterEvent(CommonEvent ieEvent, GameTime gameTime) 
+        public void RegisterEvent(CommonEvent ieEvent, GameTime gameTime)
         {
             if (ieEvent is AbstractBombExplosionEvent)
             {
@@ -150,7 +150,7 @@ namespace BombermanAdventure.Models
                 player.OnEvent(ieEvent, gameTime);
                 bombs.Remove(bomb);
             }
-            else if(ieEvent is AbstractExplosionEvent)
+            else if (ieEvent is AbstractExplosionEvent)
             {
                 AbstractExplosion explosion = (AbstractExplosion)ieEvent.Model;
                 explosions.Remove(explosion);
@@ -159,7 +159,7 @@ namespace BombermanAdventure.Models
             {
                 player.OnEvent(ieEvent, gameTime);
             }
-           
+
         }
 
         /// <summary>
@@ -177,17 +177,17 @@ namespace BombermanAdventure.Models
                 }
             }
 
-            foreach (AbstractWall wall in walls) 
+            foreach (AbstractWall wall in walls)
             {
-                if (player.BoundingSphere.Intersects(wall.BoundingBox)) 
+                if (player.BoundingSphere.Intersects(wall.BoundingBox))
                 {
                     player.OnEvent(new CollisionEvent(player, wall), gameTime);
                     return;
                 }
             }
-            foreach (AbstractBomb bomb in bombs) 
+            foreach (AbstractBomb bomb in bombs)
             {
-                if (player.BoundingSphere.Intersects(bomb.BoundingSphere) && bomb.isCollidable) 
+                if (player.BoundingSphere.Intersects(bomb.BoundingSphere) && bomb.isCollidable)
                 {
                     player.OnEvent(new CollisionEvent(player, bomb), gameTime);
                     return;
@@ -195,8 +195,9 @@ namespace BombermanAdventure.Models
             }
         }
 
-        void CheckForBombExplosionCollisions(GameTime gameTime) 
+        void CheckForBombExplosionCollisions(GameTime gameTime)
         {
+            var destroyedWalls = new List<AbstractWall>();
             foreach (AbstractExplosion explosion in explosions)
             {
                 foreach (BoundingBox box in explosion.BoundingBoxes)
@@ -210,6 +211,13 @@ namespace BombermanAdventure.Models
                             return;
                         }
                     }
+                    foreach (var wall in walls)
+                    {
+                        if (wall.BoundingBox.Intersects(box))
+                        {
+                            destroyedWalls.Add(wall);
+                        }
+                    }
                     foreach (LabyrinthBlock block in labyrinth.Blocks)
                     {
                         if (block.BoundingBox.Intersects(box))
@@ -220,9 +228,13 @@ namespace BombermanAdventure.Models
                     }
                 }
             }
+            foreach (var wall in destroyedWalls)
+            {
+                walls.Remove(wall);
+            }
         }
 
-        public void Update(GameTime gameTime) 
+        public void Update(GameTime gameTime)
         {
             List<AbstractGameModel> modelsList = new List<AbstractGameModel>();
             foreach (AbstractBomb bomb in bombs)
@@ -239,7 +251,7 @@ namespace BombermanAdventure.Models
             {
                 modelsList.Add(explosion);
             }
-            
+
             foreach (AbstractGameModel model in modelsList)
             {
                 model.Update(gameTime);
@@ -252,77 +264,77 @@ namespace BombermanAdventure.Models
             CheckForBombExplosionCollisions(gameTime);
         }
 
-        public void DrawModels(GameTime gameTime) 
+        public void DrawModels(GameTime gameTime)
         {
-           /* GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.Black, 1.0f, 0);
-            //GraphicsDevice.BlendState = BlendState.AlphaBlend;
-            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            /* GraphicsDevice.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.Black, 1.0f, 0);
+             //GraphicsDevice.BlendState = BlendState.AlphaBlend;
+             GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
-            foreach (AbstractGameModel model in models.Models)
-            {
-                model.Draw(gameTime);
-            }
-            models.Player.Draw(gameTime);
+             foreach (AbstractGameModel model in models.Models)
+             {
+                 model.Draw(gameTime);
+             }
+             models.Player.Draw(gameTime);
 
-            GraphicsDevice.DepthStencilState = DepthStencilState.None;
-            models.Hud.Draw(gameTime);*/
+             GraphicsDevice.DepthStencilState = DepthStencilState.None;
+             models.Hud.Draw(gameTime);*/
         }
 
-        public void DrawBackground(GameTime gameTime) 
+        public void DrawBackground(GameTime gameTime)
         {
 
         }
 
-        public void DrawLabyrinth(GameTime gameTime) 
+        public void DrawLabyrinth(GameTime gameTime)
         {
             labyrinth.Draw(gameTime);
         }
 
-        public void DrawWalls(GameTime gameTime) 
+        public void DrawWalls(GameTime gameTime)
         {
-            foreach (AbstractWall wall in walls) 
+            foreach (AbstractWall wall in walls)
             {
                 wall.Draw(gameTime);
             }
         }
 
-        public void DrawBonusesAndGuns(GameTime gameTime) 
+        public void DrawBonusesAndGuns(GameTime gameTime)
         {
 
         }
 
-        public void DrawBombs(GameTime gameTime) 
+        public void DrawBombs(GameTime gameTime)
         {
-            foreach (AbstractBomb bomb in bombs) 
+            foreach (AbstractBomb bomb in bombs)
             {
                 bomb.Draw(gameTime);
             }
         }
 
-        public void DrawExplosions(GameTime gameTime) 
+        public void DrawExplosions(GameTime gameTime)
         {
-            foreach (AbstractExplosion explosion in explosions) 
+            foreach (AbstractExplosion explosion in explosions)
             {
                 explosion.Draw(gameTime);
             }
         }
 
-        public void DrawShots(GameTime gameTime) 
+        public void DrawShots(GameTime gameTime)
         {
 
         }
 
-        public void DrawPlayer(GameTime gameTime) 
+        public void DrawPlayer(GameTime gameTime)
         {
             player.Draw(gameTime);
         }
 
-        public void DrawEnemies(GameTime gameTime) 
+        public void DrawEnemies(GameTime gameTime)
         {
 
         }
 
-        public void DrawHUD(GameTime gameTime) 
+        public void DrawHUD(GameTime gameTime)
         {
             hud.Draw(gameTime);
         }

@@ -2,7 +2,7 @@
 <XnaContent xmlns:Graphics="Microsoft.Xna.Framework.Content.Pipeline.Graphics" xmlns:Framework="Microsoft.Xna.Framework">
   <Asset Type="Graphics:NodeContent">
     <Identity>
-      <SourceFilename>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\Models\IndestructibleBlock.x</SourceFilename>
+      <SourceFilename>c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\Models\IndestructibleBlock.x</SourceFilename>
       <SourceTool>XImporter</SourceTool>
     </Identity>
     <Transform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</Transform>
@@ -30,7 +30,7 @@
   <Resources>
     <Resource ID="#Resource1" Type="Graphics:BasicMaterialContent">
       <Identity>
-        <SourceFilename>C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\Models\IndestructibleBlock.x</SourceFilename>
+        <SourceFilename>c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\Models\IndestructibleBlock.x</SourceFilename>
         <SourceTool>XImporter</SourceTool>
       </Identity>
       <OpaqueData>

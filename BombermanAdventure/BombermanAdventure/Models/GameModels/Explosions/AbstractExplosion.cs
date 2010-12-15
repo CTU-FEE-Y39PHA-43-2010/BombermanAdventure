@@ -35,7 +35,8 @@ namespace BombermanAdventure.Models.GameModels.Explosions
         {
             this.creationTime = gameTime.TotalGameTime;
             this.modelPosition = new Vector3(position.X, 0, position.Z);
-            this.range = player.BombRange;
+            //this.range = player.BombRange; // I HAD TO DO IT THIS WAY FOR TESTING... FIX PROFILE NULL REFERENCE....
+            range = 6;
             this.player = player;
             this.models = ModelList.GetInstance();
         }
@@ -75,15 +76,99 @@ namespace BombermanAdventure.Models.GameModels.Explosions
 
         protected void LoadExplosionItems()
         {
-            explosionItems.Add(new ExplosionItem(game, color, modelPosition));
+            var explosionPositions = new List<Vector3>();
+            explosionPositions.Add(modelPosition);
+
+            bool botCollide = false;
+            bool topCollide = false;
+            bool leftCollide = false;
+            bool rightCollide = false;
+
             for (int i = 0; i != range; i++)
             {
-                explosionItems.Add(new ExplosionItem(game, color, new Vector3(modelPosition.X + (20 * (i + 1)), modelPosition.Y, modelPosition.Z)));
-                explosionItems.Add(new ExplosionItem(game, color, new Vector3(modelPosition.X - (20 * (i + 1)), modelPosition.Y, modelPosition.Z)));
-                explosionItems.Add(new ExplosionItem(game, color, new Vector3(modelPosition.X, modelPosition.Y, modelPosition.Z + (20 * (i + 1)))));
-                explosionItems.Add(new ExplosionItem(game, color, new Vector3(modelPosition.X, modelPosition.Y, modelPosition.Z - (20 * (i + 1)))));
+                var bot = new Vector3(modelPosition.X + (20 * (i + 1)), modelPosition.Y, modelPosition.Z);
+                var top = new Vector3(modelPosition.X - (20 * (i + 1)), modelPosition.Y, modelPosition.Z);
+                var left = new Vector3(modelPosition.X, modelPosition.Y, modelPosition.Z + (20 * (i + 1)));
+                var right = new Vector3(modelPosition.X, modelPosition.Y, modelPosition.Z - (20 * (i + 1)));
+                if (!IsCollidesWithLabyrynthBlock(bot) && !botCollide)
+                {
+                    explosionPositions.Add(bot);
+                    if (IsCollidesWithDestroyableWall(bot))
+                    {
+                        botCollide = true;
+                    }
+                }
+                else
+                {
+                    botCollide = true;
+                }
+                if (!IsCollidesWithLabyrynthBlock(top) && !topCollide)
+                {
+                    explosionPositions.Add(top);
+                    if (IsCollidesWithDestroyableWall(top))
+                    {
+                        topCollide = true;
+                    }
+                }
+                else
+                {
+                    topCollide = true;
+                }
+                if (!IsCollidesWithLabyrynthBlock(left) && !leftCollide)
+                {
+                    explosionPositions.Add(left);
+                    if (IsCollidesWithDestroyableWall(left))
+                    {
+                        leftCollide = true;
+                    }
+                }
+                else
+                {
+                    leftCollide = true;
+                }
+                if (!IsCollidesWithLabyrynthBlock(right) && !rightCollide)
+                {
+                    explosionPositions.Add(right);
+                    if (IsCollidesWithDestroyableWall(right))
+                    {
+                        rightCollide = true;
+                    }
+                }
+                else
+                {
+                    rightCollide = true;
+                }
+            }
+            foreach (var pos in explosionPositions)
+            {
+                explosionItems.Add(new ExplosionItem(game, color, pos));
             }
         }
+
+        private bool IsCollidesWithDestroyableWall(Vector3 side)
+        {
+            foreach (var wall in models.Walls)
+            {
+                if (wall.ModelPosition.X == side.X && wall.ModelPosition.Y == side.Y && wall.ModelPosition.Z == side.Z)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool IsCollidesWithLabyrynthBlock(Vector3 side)
+        {
+            foreach (var block in models.Labyrinth.Blocks)
+            {
+                if (block.ModelPosition.X == side.X && block.ModelPosition.Y == side.Y && block.ModelPosition.Z == side.Z)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         protected void LoadBoundingBoxes()
         {
             foreach (ExplosionItem item in explosionItems)

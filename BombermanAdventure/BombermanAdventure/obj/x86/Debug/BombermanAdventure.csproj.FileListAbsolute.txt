@@ -38,3 +38,43 @@ C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\Bomberma
 C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor.xnb
 C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor_0.xnb
 C:\Users\h3m3r\Documents\Visual Studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall_0.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\blank.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\gradient.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\bomb.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\background.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\bomba.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\images\loading_background.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\pawball.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\bomberHUD.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\wall.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\gamefont.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\menufont.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\BAFont.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\intro.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\menuDown.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\menuUp.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sphere.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bomb.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\BrickWall.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Ground1.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\GroundUnit.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\IndestructibleBlock.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Player.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\BrickWall.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\CommonBomb.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\ElectricBomb.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\MudBomb.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Bombs\WaterBomb.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\pawball_0.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\wall_0.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\2_floor_0.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\Models\Walls\wall_0.xnb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\Content\sound\intro.wma
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\BombermanAdventure.exe
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\bin\x86\Debug\BombermanAdventure.pdb
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\obj\x86\Debug\BombermanAdventure.exe
+c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventure\obj\x86\Debug\BombermanAdventure.pdb

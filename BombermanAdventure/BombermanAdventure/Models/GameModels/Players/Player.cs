@@ -38,7 +38,8 @@ namespace BombermanAdventure.Models.GameModels.Players
             selectedBombType = Bombs.COMMON;
             possibleBombsCount = 3;
             bombsCount = 0;
-            bombRange = 3;
+            // BombRange = 6; <- fix this................
+            bombRange = 1;
 
             prevModelPosition = modelPosition;
 
