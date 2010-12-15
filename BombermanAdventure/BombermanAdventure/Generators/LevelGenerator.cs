@@ -58,6 +58,9 @@ namespace BombermanAdventure.Generators
             wall = new FireWall(game, 4, 6);
             models.AddWall(wall);
 
+            wall = new WaterWall(game, 7, 7);
+            models.AddWall(wall);
+
             models.AddEnemy(new ClassicEnemy(game, -7, 8));
             models.AddEnemy(new ClassicEnemy(game, 4, 8));
             models.AddEnemy(new SuperEnemy(game, 4, 6));
