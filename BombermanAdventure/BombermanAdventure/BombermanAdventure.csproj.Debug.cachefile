@@ -30,7 +30,6 @@ Content\Models\GroundUnit.xnb
 Content\Models\IndestructibleBlock.xnb
 Content\Models\Player.xnb
 Content\Models\Walls\BrickWall.xnb
-Content\Models\Bombs\CommonBomb.xnb
 Content\Models\Bombs\ElectricBomb.xnb
 Content\Models\Bombs\MudBomb.xnb
 Content\Models\Bombs\WaterBomb.xnb
@@ -53,4 +52,5 @@ Content\Models\Walls\Blueice_0.xnb
 Content\Models\Walls\lava_0.xnb
 Content\Models\Bonuses\bomb_0.xnb
 Content\Models\Bonuses\explosion_0.xnb
+Content\Models\Bombs\FireBomb.xnb
 Content\sound\intro.wma

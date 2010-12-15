@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using BombermanAdventure.Events;
-using BombermanAdventure.Events.Bombs;
 using BombermanAdventure.Models.GameModels.Players;
 
 namespace BombermanAdventure.Models.GameModels.Bombs
@@ -25,17 +21,17 @@ namespace BombermanAdventure.Models.GameModels.Bombs
         {
             this.modelPosition = modelPosition;
             this.player = player;
-            this.creationTime = gameTime.TotalGameTime;
-            this.range = player.PlayerProfile.BombRange;
-            this.isCollidable = false;
+            creationTime = gameTime.TotalGameTime;
+            range = player.PlayerProfile.BombRange;
+            isCollidable = false;
 
             boundingSphere = new BoundingSphere(modelPosition, 5.0f);
         }
 
         public override void Initialize()
         {
-            this.creationModelScale = base.modelScale;
-            this.deltaModelScale = base.modelScale / 100;
+            creationModelScale = modelScale;
+            deltaModelScale = modelScale / 100;
             modelRotation = new Vector3();
             base.Initialize();
         }
@@ -44,7 +40,7 @@ namespace BombermanAdventure.Models.GameModels.Bombs
         {
             if (creationTime.Seconds + 5 < gameTime.TotalGameTime.Seconds)
             {
-                this.RegisterEvent(gameTime);
+                RegisterEvent(gameTime);
             }
             else
             {
@@ -61,7 +57,7 @@ namespace BombermanAdventure.Models.GameModels.Bombs
                     scaleDown = !scaleDown;
                 }
             }
-            if (!models.Player.BoundingSphere.Intersects(this.BoundingSphere))
+            if (!models.Player.BoundingSphere.Intersects(BoundingSphere))
             {
                 isCollidable = true;
 

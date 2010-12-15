@@ -11,7 +11,7 @@ namespace BombermanAdventure
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            using (BombermanAdventureGame game = new BombermanAdventureGame())
+            using (var game = new BombermanAdventureGame())
             {
                 game.Run();
             }

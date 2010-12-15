@@ -4,6 +4,7 @@ using BombermanAdventure.GameObjects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using BombermanAdventure.Models.GameModels.Bombs;
+using BombermanAdventure.Events;
 
 namespace BombermanAdventure.Models.GameModels.Players
 {
@@ -72,7 +73,7 @@ namespace BombermanAdventure.Models.GameModels.Players
 
         }
 
-        public override void OnEvent(Events.CommonEvent ieEvent, GameTime gameTime)
+        public override void OnEvent(CommonEvent ieEvent, GameTime gameTime)
         {
             if (ieEvent is Events.Bombs.AbstractBombExplosionEvent)
             {
@@ -140,7 +141,7 @@ namespace BombermanAdventure.Models.GameModels.Players
                 switch(bType)
                 {
                     case Bombs.Common:
-                        models.AddBomb(new CommonBomb(game, pos, this, gameTime));
+                        models.AddBomb(new FireBomb(game, pos, this, gameTime));
                         break;
                     case Bombs.Water:
                         models.AddBomb(new WaterBomb(game, pos, this, gameTime));
