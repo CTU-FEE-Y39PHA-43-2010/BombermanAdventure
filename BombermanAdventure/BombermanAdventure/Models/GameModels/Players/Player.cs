@@ -13,7 +13,6 @@ namespace BombermanAdventure.Models.GameModels.Players
         public enum Bombs { Common, Water, Mud, Electric }
         enum Orientation { Up, Down, Left, Right }
 
-        private Bombs _selectedBombType;
         private KeyboardState _oldState;
         private Vector3 _min;
         private Vector3 _max;
@@ -40,7 +39,6 @@ namespace BombermanAdventure.Models.GameModels.Players
             base.modelScale = 1f;
 
             modelRotation = new Vector3(0f, 230f, 0f);
-            _selectedBombType = Bombs.Common;
             _prevModelPosition = modelPosition;
 
             _min = new Vector3();

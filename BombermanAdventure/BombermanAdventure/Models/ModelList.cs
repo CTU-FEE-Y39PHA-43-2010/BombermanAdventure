@@ -335,6 +335,7 @@ namespace BombermanAdventure.Models
                     {
                         if(enemy.BoundingBox.Intersects(box) && !explosion.isEnemyKilled(enemy))
                         {
+                            Player.PlayerProfile.Score += 25;
                             enemy.Live -= 100;
                             if(enemy.Live <= 0)
                             {
@@ -390,6 +391,7 @@ namespace BombermanAdventure.Models
                 {
                     Bonuses.Add(wall.Bonus);
                 }
+                Player.PlayerProfile.Score += 10;
                 walls.Remove(wall);
             }
             foreach (var enemy in killedEnemies)
