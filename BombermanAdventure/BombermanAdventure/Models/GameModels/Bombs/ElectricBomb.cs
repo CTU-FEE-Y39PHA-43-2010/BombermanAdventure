@@ -29,5 +29,6 @@ namespace BombermanAdventure.Models.GameModels.Bombs
         {
             RegisterEvent(gameTime);
         }
+
     }
 }

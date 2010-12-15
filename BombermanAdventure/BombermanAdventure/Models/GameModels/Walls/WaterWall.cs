@@ -3,13 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace BombermanAdventure.Models.GameModels.Walls
 {
-    class BrickWall : AbstractWall
+    class WaterWall : AbstractWall
     {
-        public BrickWall(Game game, int x, int y) : base(game, x, y) { }
+        public WaterWall(Game game, int x, int y) : base(game, x, y) { }
 
         public override void Initialize()
         {
-            modelName = "Models/Walls/commonWall";
+            modelName = "Models/Walls/waterWall";
             modelScale = 1f;
             modelRotation = new Vector3();
             base.Initialize();

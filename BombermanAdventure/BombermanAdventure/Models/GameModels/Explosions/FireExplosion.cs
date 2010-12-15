@@ -18,5 +18,10 @@ namespace BombermanAdventure.Models.GameModels.Explosions
         {
             models.RegisterEvent(new FireExplosionEvent(this, player), gameTime);
         }
+
+        public override Player.Bombs BombType()
+        {
+            return Player.Bombs.Common;
+        }
     }
 }

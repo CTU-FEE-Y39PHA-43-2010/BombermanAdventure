@@ -154,6 +154,9 @@
     <Compile Include="Models\GameModels\Players\SuperEnemy.cs" />
     <Compile Include="Models\GameModels\Walls\AbstractWall.cs" />
     <Compile Include="Models\GameModels\Walls\BrickWall.cs" />
+    <Compile Include="Models\GameModels\Walls\ElectricWall.cs" />
+    <Compile Include="Models\GameModels\Walls\FireWall.cs" />
+    <Compile Include="Models\GameModels\Walls\WaterWall.cs" />
     <Compile Include="Models\HUD.cs" />
     <Compile Include="Models\LevelBase.cs" />
     <Compile Include="Models\ModelList.cs" />
