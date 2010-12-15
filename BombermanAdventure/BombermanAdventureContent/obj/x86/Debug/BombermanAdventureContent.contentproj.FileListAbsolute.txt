@@ -1,3 +1,0 @@
-c:\users\h3m3r\documents\visual studio 2010\Projects\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\obj\x86\Debug\ResolveAssemblyReference.cache
-c:\!pha\BombermanAdventure\BombermanAdventure\BombermanAdventureContent\obj\x86\Debug\ResolveAssemblyReference.cache
-E:\school\git2\BombermanAdventure\BombermanAdventureContent\obj\x86\Debug\ResolveAssemblyReference.cache
