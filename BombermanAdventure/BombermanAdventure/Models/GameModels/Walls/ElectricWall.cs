@@ -15,6 +15,11 @@ namespace BombermanAdventure.Models.GameModels.Walls
             base.Initialize();
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            modelRotation.Y += 10f;
+        }
+
         public override void OnEvent(Events.CommonEvent ieEvent, GameTime gameTime)
         {
             //throw new NotImplementedException();

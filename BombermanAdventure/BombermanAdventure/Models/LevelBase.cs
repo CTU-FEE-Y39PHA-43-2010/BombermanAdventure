@@ -51,6 +51,7 @@ namespace BombermanAdventure.Models
             models.DrawBombs(gameTime);
             models.DrawEnemies(gameTime);
             models.DrawExplosions(gameTime);
+            GraphicsDevice.BlendState = BlendState.NonPremultiplied;
             if (models.Player != null && !models.Player.Dead && !models.Player.Winner)
             {
                 models.Player.Draw(gameTime);

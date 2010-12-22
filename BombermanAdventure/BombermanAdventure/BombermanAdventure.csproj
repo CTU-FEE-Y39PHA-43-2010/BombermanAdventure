@@ -160,6 +160,11 @@
     <Compile Include="Models\HUD.cs" />
     <Compile Include="Models\LevelBase.cs" />
     <Compile Include="Models\ModelList.cs" />
+    <Compile Include="ParticleSystems\ExplosionParticleSystem.cs" />
+    <Compile Include="ParticleSystems\ParticleEmitter.cs" />
+    <Compile Include="ParticleSystems\ParticleSettings.cs" />
+    <Compile Include="ParticleSystems\ParticleSystem.cs" />
+    <Compile Include="ParticleSystems\ParticleVertex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="BombermanAdventureGame.cs" />

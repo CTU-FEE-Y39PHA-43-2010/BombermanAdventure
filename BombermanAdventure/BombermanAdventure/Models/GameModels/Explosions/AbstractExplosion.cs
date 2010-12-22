@@ -80,6 +80,13 @@ namespace BombermanAdventure.Models.GameModels.Explosions
             {
                 RegisterEvent(gameTime);
             }
+            else 
+            {
+                foreach (var explosionItem in explosionItems)
+                {
+                    explosionItem.Update(gameTime);
+                }
+            }
         }
 
         abstract protected void RegisterEvent(GameTime gameTime);
